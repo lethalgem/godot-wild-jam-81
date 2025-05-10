@@ -5,7 +5,7 @@
 
 [sub_resource type="Environment" id="Environment_755td"]
 background_mode = 1
-background_color = Color(0.422259, 0.403771, 1, 1)
+background_color = Color(1, 1, 1, 1)
 background_energy_multiplier = 4.47
 
 [node name="MovementTest" type="Node3D"]
@@ -13,7 +13,7 @@ background_energy_multiplier = 4.47
 [node name="CharacterBody3D" parent="." instance=ExtResource("1_08uda")]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 0, -0.5, 0)
+transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 5, 0, -0.5, 0)
 use_collision = true
 material = ExtResource("3_gdjh5")
 

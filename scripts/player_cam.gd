@@ -1,6 +1,6 @@
 class_name PlayerCam extends Camera3D
 
-@export var camera_rotation_sensitivity := 100
+@export var camera_rotation_sensitivity := 250
 var camera_invert_on := false
 
 func _ready():
