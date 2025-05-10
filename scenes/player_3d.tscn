@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://d26qs8etihkmt"]
+
+[ext_resource type="Material" uid="uid://byhy7ewxgbvf7" path="res://materials/prototype_surface.tres" id="1_b6dr0"]
+[ext_resource type="Script" uid="uid://bbfkcny5a4dtv" path="res://scripts/player_3d.gd" id="1_k868f"]
+[ext_resource type="Script" uid="uid://bcjjtmlkltfm" path="res://scripts/player_cam.gd" id="2_3fu5i"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_k868f"]
+
+[node name="Player3D" type="CharacterBody3D" node_paths=PackedStringArray("player_cam")]
+script = ExtResource("1_k868f")
+player_cam = NodePath("PlayerCam")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_k868f")
+
+[node name="PlayerCam" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+script = ExtResource("2_3fu5i")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 0, -0.5, 0)
+visible = false
+material = ExtResource("1_b6dr0")
