@@ -1,4 +1,4 @@
-[gd_resource type="Environment" load_steps=5 format=3 uid="uid://dwmeb5ekydwco"]
+[gd_resource type="Environment" load_steps=5 format=3 uid="uid://catxm8v4dc7jw"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_w2g42"]
 noise_type = 2
@@ -18,6 +18,7 @@ sky_material = SubResource("ProceduralSkyMaterial_w2g42")
 
 [resource]
 background_mode = 2
-background_energy_multiplier = 0.06
+background_energy_multiplier = 0.34
 sky = SubResource("Sky_flvwv")
-fog_light_energy = 6.52
+fog_light_color = Color(0.521082, 0.556066, 0.611043, 1)
+fog_light_energy = 0.6

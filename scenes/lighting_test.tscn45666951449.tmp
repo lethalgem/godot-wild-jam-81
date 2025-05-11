@@ -1,22 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://fosfuwcbck3u"]
+[gd_scene load_steps=4 format=3 uid="uid://fosfuwcbck3u"]
 
+[ext_resource type="Environment" uid="uid://catxm8v4dc7jw" path="res://environments/subtle_flash.tres" id="1_c4ibi"]
 [ext_resource type="PackedScene" uid="uid://d26qs8etihkmt" path="res://scenes/player_3d.tscn" id="2_c4ibi"]
 [ext_resource type="Script" uid="uid://c86h316umyl25" path="res://scenes/lightning_manager.gd" id="3_c4ibi"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_w07b1"]
-
-[sub_resource type="Sky" id="Sky_c4ibi"]
-sky_material = SubResource("ProceduralSkyMaterial_w07b1")
-
-[sub_resource type="Environment" id="Environment_w07b1"]
-background_mode = 2
-sky = SubResource("Sky_c4ibi")
-ambient_light_energy = 0.7
 
 [node name="LightningTest" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_w07b1")
+environment = ExtResource("1_c4ibi")
 
 [node name="Player3D" parent="." instance=ExtResource("2_c4ibi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -32,5 +23,4 @@ world_environment = NodePath("../WorldEnvironment")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="LightningManager"]
 transform = Transform3D(1, 0, 0, 0, -0.840103, 0.542427, 0, -0.542427, -0.840103, 0, 0, 0)
-visible = false
 light_energy = 2.0
