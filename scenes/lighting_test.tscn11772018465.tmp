@@ -8,14 +8,15 @@
 [sub_resource type="Sky" id="Sky_c4ibi"]
 sky_material = SubResource("ProceduralSkyMaterial_w07b1")
 
-[sub_resource type="Environment" id="Environment_bxadc"]
+[sub_resource type="Environment" id="Environment_w07b1"]
 background_mode = 2
 sky = SubResource("Sky_c4ibi")
+ambient_light_energy = 0.7
 
 [node name="LightningTest" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_bxadc")
+environment = SubResource("Environment_w07b1")
 
 [node name="Player3D" parent="." instance=ExtResource("2_c4ibi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -30,22 +31,5 @@ directional_light = NodePath("DirectionalLight3D")
 world_environment = NodePath("../WorldEnvironment")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="LightningManager"]
-transform = Transform3D(-0.589196, -0.753817, -0.290874, 0, -0.359997, 0.932953, -0.80799, 0.549693, 0.212109, 0, 12.4089, 0)
-light_energy = 1.367
-shadow_enabled = true
-sky_mode = 1
-
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.08891, 0)
-
-[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.4807, 1.03258, -7.10147)
-
-[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9375, 1.05213, 6.80065)
-
-[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.8696, 1.05194, -7.69415)
-
-[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.7057, 0.964066, 7.76493)
+transform = Transform3D(1, 0, 0, 0, -0.840103, 0.542427, 0, -0.542427, -0.840103, 0, 0, 0)
+light_energy = 1.267
