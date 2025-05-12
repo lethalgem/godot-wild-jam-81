@@ -1,0 +1,9 @@
+[gd_resource type="Environment" load_steps=2 format=3 uid="uid://dwmeb5ekydwco"]
+
+[ext_resource type="Sky" uid="uid://bbvmi4mg4x10p" path="res://skies/black_sky.tres" id="1_flvwv"]
+
+[resource]
+background_mode = 2
+background_energy_multiplier = 0.0
+sky = ExtResource("1_flvwv")
+fog_light_energy = 6.52

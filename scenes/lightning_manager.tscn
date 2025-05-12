@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://brf05vc778n02"]
+
+[ext_resource type="Script" uid="uid://c86h316umyl25" path="res://scenes/lightning_manager.gd" id="1_bh0cj"]
+
+[sub_resource type="Environment" id="Environment_bh0cj"]
+
+[node name="LightningManager" type="Node3D" node_paths=PackedStringArray("directional_light", "world_environment")]
+script = ExtResource("1_bh0cj")
+directional_light = NodePath("DirectionalLight3D")
+world_environment = NodePath("WorldEnvironment")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.589196, -0.753817, -0.290874, 0, -0.359997, 0.932953, -0.80799, 0.549693, 0.212109, 0, 12.4089, 0)
+light_energy = 1.367
+shadow_enabled = true
+sky_mode = 1
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_bh0cj")
