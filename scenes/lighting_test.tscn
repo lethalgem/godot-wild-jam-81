@@ -1,21 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://fosfuwcbck3u"]
+[gd_scene load_steps=3 format=3 uid="uid://fosfuwcbck3u"]
 
 [ext_resource type="PackedScene" uid="uid://d26qs8etihkmt" path="res://scenes/player_3d.tscn" id="2_c4ibi"]
-[ext_resource type="Script" uid="uid://c86h316umyl25" path="res://scenes/lightning_manager.gd" id="3_c4ibi"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_w07b1"]
-
-[sub_resource type="Sky" id="Sky_c4ibi"]
-sky_material = SubResource("ProceduralSkyMaterial_w07b1")
-
-[sub_resource type="Environment" id="Environment_bxadc"]
-background_mode = 2
-sky = SubResource("Sky_c4ibi")
+[ext_resource type="PackedScene" uid="uid://brf05vc778n02" path="res://scenes/lightning_manager.tscn" id="2_w07b1"]
 
 [node name="LightningTest" type="Node3D"]
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_bxadc")
 
 [node name="Player3D" parent="." instance=ExtResource("2_c4ibi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -24,16 +12,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 transform = Transform3D(60, 0, 0, 0, 1, 0, 0, 0, 30, 0, -0.5, 0)
 use_collision = true
 
-[node name="LightningManager" type="Node3D" parent="." node_paths=PackedStringArray("directional_light", "world_environment")]
-script = ExtResource("3_c4ibi")
-directional_light = NodePath("DirectionalLight3D")
-world_environment = NodePath("../WorldEnvironment")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="LightningManager"]
-transform = Transform3D(-0.589196, -0.753817, -0.290874, 0, -0.359997, 0.932953, -0.80799, 0.549693, 0.212109, 0, 12.4089, 0)
-light_energy = 1.367
-shadow_enabled = true
-sky_mode = 1
+[node name="LightningManager" parent="." instance=ExtResource("2_w07b1")]
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.08891, 0)
