@@ -16,8 +16,6 @@ preload("res://assets/sfx/Thunder_Sounds/Close/mixkit-thunder-with-rain-in-the-s
 
 var tween : Tween
 
-#TODO: Thunder sound - delayed sound - rolling thunder?
-
 func _ready():
 	change_to_env(dark_env,0.0,0.0)
 	start_sequence_lightning()
