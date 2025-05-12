@@ -1,0 +1,99 @@
+[gd_scene load_steps=10 format=3 uid="uid://ctk31d8238xvm"]
+
+[ext_resource type="PackedScene" uid="uid://d26qs8etihkmt" path="res://scenes/player_3d.tscn" id="1_tvl7f"]
+[ext_resource type="PackedScene" uid="uid://b8w4pyxonalvt" path="res://scenes/lightning_manager.tscn" id="2_jj7pm"]
+
+[sub_resource type="Gradient" id="Gradient_vr1m7"]
+offsets = PackedFloat32Array(0.2, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_d8lcj"]
+noise_type = 2
+frequency = 0.03
+cellular_jitter = 3.0
+cellular_return_type = 0
+domain_warp_enabled = true
+domain_warp_type = 1
+domain_warp_amplitude = 50.0
+domain_warp_fractal_type = 2
+domain_warp_fractal_lacunarity = 1.5
+domain_warp_fractal_gain = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_bov7h"]
+seamless = true
+color_ramp = SubResource("Gradient_vr1m7")
+noise = SubResource("FastNoiseLite_d8lcj")
+
+[sub_resource type="Terrain3DMaterial" id="Terrain3DMaterial_jj7pm"]
+_shader_parameters = {
+"_mouse_layer": 2147483648,
+"auto_base_texture": 0,
+"auto_height_reduction": 0.1,
+"auto_overlay_texture": 1,
+"auto_slope": 1.0,
+"bias_distance": 512.0,
+"blend_sharpness": 0.87,
+"depth_blur": 0.0,
+"dual_scale_far": 170.0,
+"dual_scale_near": 100.0,
+"dual_scale_reduction": 0.3,
+"dual_scale_texture": 0,
+"enable_macro_variation": true,
+"enable_projection": true,
+"height_blending": true,
+"macro_variation1": Color(0.878431, 0.862745, 0.901961, 1),
+"macro_variation2": Color(0.898039, 0.898039, 0.803922, 1),
+"macro_variation_slope": 0.333,
+"mipmap_bias": 1.0,
+"noise1_angle": 0.1,
+"noise1_offset": Vector2(0.5, 0.5),
+"noise1_scale": 0.04,
+"noise2_scale": 0.076,
+"noise3_scale": 0.225,
+"noise_texture": SubResource("NoiseTexture2D_bov7h"),
+"projection_angular_division": 1.436,
+"projection_threshold": 0.8,
+"tri_scale_reduction": 0.3,
+&"world_space_normal_blend": true
+}
+world_background = 0
+auto_shader = true
+dual_scaling = true
+show_checkered = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_852sl"]
+transparency = 4
+cull_mode = 2
+vertex_color_use_as_albedo = true
+backlight_enabled = true
+backlight = Color(0.5, 0.5, 0.5, 1)
+distance_fade_mode = 1
+distance_fade_min_distance = 128.0
+distance_fade_max_distance = 96.0
+
+[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_feexa"]
+generated_type = 1
+height_offset = 0.5
+material_override = SubResource("StandardMaterial3D_852sl")
+last_lod = 0
+last_shadow_lod = 0
+lod0_range = 128.0
+
+[sub_resource type="Terrain3DAssets" id="Terrain3DAssets_iyyqv"]
+mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_feexa")])
+
+[node name="mountain_test" type="Node3D"]
+
+[node name="Player3D" parent="." instance=ExtResource("1_tvl7f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -124.474, 80.6992, 134.122)
+
+[node name="LightningManager" parent="." instance=ExtResource("2_jj7pm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00354004, 1.36914, -0.0236816)
+
+[node name="Terrain3D" type="Terrain3D" parent="."]
+data_directory = "res://terrain"
+material = SubResource("Terrain3DMaterial_jj7pm")
+assets = SubResource("Terrain3DAssets_iyyqv")
+show_checkered = true
+top_level = true
+metadata/_edit_lock_ = true

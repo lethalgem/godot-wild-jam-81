@@ -1,8 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://brf05vc778n02"]
+[gd_scene load_steps=3 format=3 uid="uid://b8w4pyxonalvt"]
 
-[ext_resource type="Script" uid="uid://c86h316umyl25" path="res://scenes/lightning_manager.gd" id="1_bh0cj"]
-
-[sub_resource type="Environment" id="Environment_bh0cj"]
+[ext_resource type="Script" uid="uid://c86h316umyl25" path="res://scripts/lightning_manager.gd" id="1_bh0cj"]
+[ext_resource type="Environment" uid="uid://cnq5ijxg30liu" path="res://environments/placeholder_sky.tres" id="2_pu3t3"]
 
 [node name="LightningManager" type="Node3D" node_paths=PackedStringArray("directional_light", "world_environment")]
 script = ExtResource("1_bh0cj")
@@ -16,4 +15,4 @@ shadow_enabled = true
 sky_mode = 1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_bh0cj")
+environment = ExtResource("2_pu3t3")
