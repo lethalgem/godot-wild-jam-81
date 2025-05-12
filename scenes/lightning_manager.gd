@@ -7,10 +7,10 @@ class_name Lightning_Manager extends Node3D
 @onready var big_flash_env := preload("res://environments/big_flash.tres")
 
 @onready var distant_thunder_audio_pool := [preload("res://assets/sfx/Thunder_Sounds/Distant/mixkit-big-thunder-rumble-1297.wav"),
-preload('res://assets/sfx/Thunder_Sounds/Distant/mixkit-big-thunder-with-rain-1291.wav'),
-preload('res://assets/sfx/Thunder_Sounds/Distant/mixkit-heavy-storm-rain-loop-2400.wav'),
-preload('res://assets/sfx/Thunder_Sounds/Distant/mixkit-thunder-rumble-and-light-rain-2401.wav'),
-preload('res://assets/sfx/Thunder_Sounds/Distant/mixkit-thunderstorm-background-sound-2398.wav'),]
+	preload('res://assets/sfx/Thunder_Sounds/Distant/mixkit-big-thunder-with-rain-1291.wav'),
+	preload('res://assets/sfx/Thunder_Sounds/Distant/mixkit-heavy-storm-rain-loop-2400.wav'),
+	preload('res://assets/sfx/Thunder_Sounds/Distant/mixkit-thunder-rumble-and-light-rain-2401.wav'),
+	preload('res://assets/sfx/Thunder_Sounds/Distant/mixkit-thunderstorm-background-sound-2398.wav'),]
 @onready var close_thunder_audio_pool := [preload("res://assets/sfx/Thunder_Sounds/Close/mixkit-nature-ambience-with-lightning-strike-and-thunder-3093.wav"),
 preload("res://assets/sfx/Thunder_Sounds/Close/mixkit-thunder-with-rain-in-the-storm-1294.wav")]
 
