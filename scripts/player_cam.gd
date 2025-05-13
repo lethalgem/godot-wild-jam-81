@@ -4,7 +4,14 @@ class_name PlayerCam extends Camera3D
 @export var flashlight : SpotLight3D
 @export var battery_life : ProgressBar
 var camera_invert_on := false
-var flashlight_on := false
+var flashlight_on := false:
+	set(new_value):
+		if new_value and battery_life.value > 0:
+			flashlight_on = true
+			flashlight.light_energy = 16
+		else:
+			flashlight_on = false
+			flashlight.light_energy = 0
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -26,19 +33,8 @@ func _input(event: InputEvent) -> void:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 	if event.is_action_pressed("night_vision"):
-		if flashlight_on:
-			turn_off_flashlight()
-		else:
-			turn_on_flashlight()
-			
-func turn_on_flashlight():
-	flashlight_on = true
-	flashlight.light_energy = 16
+		flashlight_on = !flashlight_on
 
-func turn_off_flashlight():
-	flashlight_on = false
-	flashlight.light_energy = 0
-
-func _process(delta) -> void:
+func _physics_process(delta) -> void:
 	if flashlight.light_energy == 16:
-		battery_life.value -= 1
+		battery_life.value -= 0.5
