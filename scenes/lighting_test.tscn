@@ -28,3 +28,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.8696, 1.05194, -7.69415)
 
 [node name="CSGCylinder3D4" type="CSGCylinder3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.7057, 0.964066, 7.76493)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
