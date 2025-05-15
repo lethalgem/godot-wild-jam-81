@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://brf05vc778n02"]
 
-[ext_resource type="Script" uid="uid://c86h316umyl25" path="res://scenes/lightning_manager.gd" id="1_bh0cj"]
+[ext_resource type="Script" uid="uid://c86h316umyl25" path="res://scripts/lightning_manager.gd" id="1_bh0cj"]
 
 [sub_resource type="Environment" id="Environment_bh0cj"]
 

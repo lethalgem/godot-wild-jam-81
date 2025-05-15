@@ -1,0 +1,94 @@
+[gd_scene load_steps=3 format=3 uid="uid://2dlmenvee0k8"]
+
+[ext_resource type="LabelSettings" uid="uid://7ud8i355i72s" path="res://themes/audio_menu_labels.tres" id="1_ogw40"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_pgfik"]
+font_size = 45
+
+[node name="SettingMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -400.0
+offset_top = -420.0
+offset_right = 400.0
+offset_bottom = 430.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 300
+theme_override_constants/margin_top = 150
+theme_override_constants/margin_right = 300
+theme_override_constants/margin_bottom = 150
+
+[node name="Panel" type="Panel" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -85.0
+offset_top = -136.0
+offset_right = 85.0
+offset_bottom = 136.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SettingTitleLabel" type="Label" parent="MarginContainer/Panel/VBoxContainer"]
+layout_mode = 2
+text = "Settings"
+label_settings = SubResource("LabelSettings_pgfik")
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MasterLabel" type="Label" parent="MarginContainer/Panel/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Master"
+label_settings = ExtResource("1_ogw40")
+horizontal_alignment = 1
+
+[node name="Master" type="HSlider" parent="MarginContainer/Panel/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MusicLabel" type="Label" parent="MarginContainer/Panel/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Music"
+label_settings = ExtResource("1_ogw40")
+horizontal_alignment = 1
+
+[node name="Music" type="HSlider" parent="MarginContainer/Panel/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="SFXLabel" type="Label" parent="MarginContainer/Panel/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "SFX"
+label_settings = ExtResource("1_ogw40")
+horizontal_alignment = 1
+
+[node name="SFX" type="HSlider" parent="MarginContainer/Panel/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="FullscreenToggle" type="Button" parent="MarginContainer/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Fullscreen"
+
+[node name="GoBack" type="Button" parent="MarginContainer/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 25
+text = "Go Back"
