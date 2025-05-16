@@ -1,13 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://2dlmenvee0k8"]
+[gd_scene load_steps=5 format=3 uid="uid://2dlmenvee0k8"]
 
 [ext_resource type="LabelSettings" uid="uid://7ud8i355i72s" path="res://themes/audio_menu_labels.tres" id="1_ogw40"]
+[ext_resource type="Script" uid="uid://cvn4wboaw7q3o" path="res://scripts/setting_menu.gd" id="1_vproo"]
+[ext_resource type="Script" uid="uid://bwj34nu5myfci" path="res://scripts/audio_slider.gd" id="2_pgfik"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_pgfik"]
 font_size = 45
 
-[node name="SettingMenu" type="Control"]
+[node name="SettingMenu" type="Control" node_paths=PackedStringArray("button_sound_player", "fullscreen_button")]
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_vproo")
+button_sound_player = NodePath("AudioStreamPlayer")
+fullscreen_button = NodePath("MarginContainer/Panel/VBoxContainer/FullscreenToggle")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -63,6 +70,7 @@ horizontal_alignment = 1
 
 [node name="Master" type="HSlider" parent="MarginContainer/Panel/VBoxContainer/VBoxContainer"]
 layout_mode = 2
+script = ExtResource("2_pgfik")
 
 [node name="MusicLabel" type="Label" parent="MarginContainer/Panel/VBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -72,6 +80,7 @@ horizontal_alignment = 1
 
 [node name="Music" type="HSlider" parent="MarginContainer/Panel/VBoxContainer/VBoxContainer"]
 layout_mode = 2
+script = ExtResource("2_pgfik")
 
 [node name="SFXLabel" type="Label" parent="MarginContainer/Panel/VBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -81,6 +90,7 @@ horizontal_alignment = 1
 
 [node name="SFX" type="HSlider" parent="MarginContainer/Panel/VBoxContainer/VBoxContainer"]
 layout_mode = 2
+script = ExtResource("2_pgfik")
 
 [node name="FullscreenToggle" type="Button" parent="MarginContainer/Panel/VBoxContainer"]
 layout_mode = 2
@@ -92,3 +102,6 @@ layout_mode = 2
 size_flags_vertical = 8
 theme_override_font_sizes/font_size = 25
 text = "Go Back"
+
+[connection signal="button_up" from="MarginContainer/Panel/VBoxContainer/FullscreenToggle" to="." method="_on_fullscreen_toggle_button_up"]
+[connection signal="button_up" from="MarginContainer/Panel/VBoxContainer/GoBack" to="." method="_on_go_back_button_up"]
