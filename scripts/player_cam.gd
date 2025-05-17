@@ -4,9 +4,10 @@ class_name PlayerCam extends Camera3D
 @export var flashlight : SpotLight3D
 @export var battery_life : ProgressBar
 var camera_invert_on := false
+var flashlight_dead := false
 var flashlight_on := false:
 	set(new_value):
-		if new_value and battery_life.value > 0:
+		if new_value and !flashlight_dead:
 			flashlight_on = true
 			flashlight.light_energy = 16
 		else:
@@ -26,13 +27,20 @@ func _unhandled_input(event):
 		rotation.x = clamp(rotation.x,deg_to_rad(-90),deg_to_rad(90))
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("night_vision"):
+	if event.is_action_pressed("flashlight"):
 		flashlight_on = !flashlight_on
 
 func _physics_process(delta) -> void:
 	if flashlight.light_energy == 16:
 		battery_life.value -= 0.5
+		if battery_life.value == 0:
+			dead_battery()
 
 func battery_replenish():
 	print(battery_life.value * 0.2)
 	battery_life.value += battery_life.value * 0.2
+
+func dead_battery():
+	flashlight_dead = true
+	flashlight.light_energy = 0
+	

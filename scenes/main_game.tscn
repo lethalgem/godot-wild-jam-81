@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c5sadmdcxhyxw"]
+[gd_scene load_steps=11 format=3 uid="uid://c5sadmdcxhyxw"]
 
 [ext_resource type="Script" uid="uid://bombasrnoko1y" path="res://scripts/main_game.gd" id="1_72e8q"]
 [ext_resource type="PackedScene" uid="uid://2dlmenvee0k8" path="res://scenes/setting_menu.tscn" id="2_d2op2"]
@@ -6,7 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://d26qs8etihkmt" path="res://scenes/player_3d.tscn" id="4_ygxny"]
 [ext_resource type="PackedScene" uid="uid://brf05vc778n02" path="res://scenes/lightning_manager.tscn" id="5_wi4c7"]
 [ext_resource type="Script" uid="uid://dn7gkaax7onba" path="res://scripts/setting_menu_canva.gd" id="5_ygxny"]
-[ext_resource type="PackedScene" uid="uid://c0wwhp4blwvg8" path="res://scenes/end_game_screen.tscn" id="7_wi4c7"]
+[ext_resource type="PackedScene" uid="uid://ve80b6j2o8vl" path="res://scenes/end_game_screen.tscn" id="7_wi4c7"]
+[ext_resource type="PackedScene" uid="uid://cu70k1i838jgq" path="res://scenes/battery.tscn" id="8_70vka"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ygxny"]
 size = Vector3(4.37939, 0.103516, 6.97842)
@@ -27,8 +28,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.7489, 9.53674e-07, 6.74067
 
 [node name="Player3D" parent="." instance=ExtResource("4_ygxny")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.99)
-collision_layer = 2
-collision_mask = 5
 
 [node name="MenuCanva" type="CanvasLayer" parent="." node_paths=PackedStringArray("setting_menu")]
 script = ExtResource("5_ygxny")
@@ -72,5 +71,13 @@ shape = SubResource("BoxShape3D_wi4c7")
 [node name="EngGameScreen" parent="." instance=ExtResource("7_wi4c7")]
 visible = false
 
+[node name="Battery2" parent="." instance=ExtResource("8_70vka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.42195, 0.0999999, -8.99561)
+
+[node name="Battery" parent="." instance=ExtResource("8_70vka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.71097, 0.1, 7.8148)
+
 [connection signal="body_entered" from="FinishLineArea" to="." method="_on_finish_line_area_body_entered"]
 [connection signal="body_entered" from="DeathArea" to="." method="_on_death_area_body_entered"]
+[connection signal="battery_replenish" from="Battery2" to="." method="_on_battery_2_battery_replenish"]
+[connection signal="battery_replenish" from="Battery" to="." method="_on_battery_battery_replenish"]

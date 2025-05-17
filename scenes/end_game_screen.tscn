@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ve80b6j2o8vl"]
 
 [ext_resource type="Script" uid="uid://bhqtseodn7obn" path="res://scripts/end_game_screen.gd" id="1_7y8om"]
-[ext_resource type="LabelSettings" uid="uid://b811xqie25kea" path="res://themes/game_over_title.tres" id="2_70b0o"]
+[ext_resource type="LabelSettings" uid="uid://bo6e4f4ar7ve7" path="res://themes/game_over_title.tres" id="2_70b0o"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_es3qr"]
 font_size = 30
