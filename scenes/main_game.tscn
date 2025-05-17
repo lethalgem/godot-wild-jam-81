@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c5sadmdcxhyxw"]
+[gd_scene load_steps=10 format=3 uid="uid://c5sadmdcxhyxw"]
 
 [ext_resource type="Script" uid="uid://bombasrnoko1y" path="res://scripts/main_game.gd" id="1_72e8q"]
 [ext_resource type="PackedScene" uid="uid://2dlmenvee0k8" path="res://scenes/setting_menu.tscn" id="2_d2op2"]
@@ -6,9 +6,19 @@
 [ext_resource type="PackedScene" uid="uid://d26qs8etihkmt" path="res://scenes/player_3d.tscn" id="4_ygxny"]
 [ext_resource type="PackedScene" uid="uid://brf05vc778n02" path="res://scenes/lightning_manager.tscn" id="5_wi4c7"]
 [ext_resource type="Script" uid="uid://dn7gkaax7onba" path="res://scripts/setting_menu_canva.gd" id="5_ygxny"]
+[ext_resource type="PackedScene" uid="uid://c0wwhp4blwvg8" path="res://scenes/end_game_screen.tscn" id="7_wi4c7"]
 
-[node name="MainGame" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_ygxny"]
+size = Vector3(4.37939, 0.103516, 6.97842)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wi4c7"]
+size = Vector3(125.893, 1, 96.4996)
+
+[node name="MainGame" type="Node3D" node_paths=PackedStringArray("player", "finish_line_area", "end_game_screen")]
 script = ExtResource("1_72e8q")
+player = NodePath("Player3D")
+finish_line_area = NodePath("FinishLineArea")
+end_game_screen = NodePath("EngGameScreen")
 
 [node name="LightningTest" parent="." instance=ExtResource("2_ipu61")]
 
@@ -17,6 +27,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.7489, 9.53674e-07, 6.74067
 
 [node name="Player3D" parent="." instance=ExtResource("4_ygxny")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.99)
+collision_layer = 2
+collision_mask = 5
 
 [node name="MenuCanva" type="CanvasLayer" parent="." node_paths=PackedStringArray("setting_menu")]
 script = ExtResource("5_ygxny")
@@ -40,3 +52,25 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="FinishLineArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.4939, 0.5, -14.4944)
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FinishLineArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6897, -0.448242, 2.98921)
+shape = SubResource("BoxShape3D_ygxny")
+
+[node name="DeathArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -16.214, 0)
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DeathArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.138489, 0, -0.138702)
+shape = SubResource("BoxShape3D_wi4c7")
+
+[node name="EngGameScreen" parent="." instance=ExtResource("7_wi4c7")]
+visible = false
+
+[connection signal="body_entered" from="FinishLineArea" to="." method="_on_finish_line_area_body_entered"]
+[connection signal="body_entered" from="DeathArea" to="." method="_on_death_area_body_entered"]
