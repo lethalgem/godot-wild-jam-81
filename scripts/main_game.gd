@@ -1,6 +1,11 @@
 class_name MainGame extends Node3D
 
 @export var player : Player3D
+
+func _on_battery_battery_replenish():
+	print(player.player_cam.battery_life.value)
+	player.player_cam.battery_life.value += 200
+	print(player.player_cam.battery_life.value)
 @export var finish_line_area : Area3D
 @export var end_game_screen : EndGameScreen
 

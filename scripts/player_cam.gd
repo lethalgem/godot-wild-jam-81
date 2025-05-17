@@ -32,3 +32,7 @@ func _input(event: InputEvent) -> void:
 func _physics_process(delta) -> void:
 	if flashlight.light_energy == 16:
 		battery_life.value -= 0.5
+
+func battery_replenish():
+	print(battery_life.value * 0.2)
+	battery_life.value += battery_life.value * 0.2
