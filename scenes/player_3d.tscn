@@ -1,10 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://d26qs8etihkmt"]
+[gd_scene load_steps=7 format=3 uid="uid://d26qs8etihkmt"]
 
 [ext_resource type="Material" uid="uid://byhy7ewxgbvf7" path="res://materials/prototype_surface.tres" id="1_b6dr0"]
 [ext_resource type="Script" uid="uid://bbfkcny5a4dtv" path="res://scripts/player_3d.gd" id="1_k868f"]
 [ext_resource type="Script" uid="uid://bcjjtmlkltfm" path="res://scripts/player_cam.gd" id="2_3fu5i"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_k868f"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_2djwe"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_4jfb6"]
+top_radius = 0.1
+bottom_radius = 0.1
+height = 0.4
 
 [node name="Player3D" type="CharacterBody3D" node_paths=PackedStringArray("player_cam")]
 script = ExtResource("1_k868f")
@@ -14,9 +21,35 @@ player_cam = NodePath("PlayerCam")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_k868f")
 
-[node name="PlayerCam" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_2djwe")
+
+[node name="PlayerCam" type="Camera3D" parent="." node_paths=PackedStringArray("flashlight", "battery_life")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.61224, 0)
 script = ExtResource("2_3fu5i")
+flashlight = NodePath("Flashlight/SpotLight3D")
+battery_life = NodePath("Flashlight/BatteryLife")
+
+[node name="Flashlight" type="MeshInstance3D" parent="PlayerCam"]
+transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 0.770425, -0.560722, -0.693031)
+mesh = SubResource("CylinderMesh_4jfb6")
+skeleton = NodePath("../../MeshInstance3D")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="PlayerCam/Flashlight"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+light_color = Color(0.807843, 0.792157, 0.290196, 1)
+light_energy = 0.0
+spot_range = 6.66569
+spot_angle = 24.0204
+
+[node name="BatteryLife" type="ProgressBar" parent="PlayerCam/Flashlight"]
+offset_left = 16.0
+offset_top = 599.0
+offset_right = 412.0
+offset_bottom = 626.0
+max_value = 1000.0
+value = 1000.0
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 0, -0.5, 0)
