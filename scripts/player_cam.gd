@@ -42,5 +42,5 @@ func battery_replenish():
 
 func dead_battery():
 	flashlight_dead = true
-	flashlight.light_energy = 0
+	flashlight_on = false
 	
