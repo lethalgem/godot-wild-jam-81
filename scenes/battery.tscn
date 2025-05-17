@@ -1,0 +1,70 @@
+[gd_scene load_steps=9 format=3 uid="uid://cu70k1i838jgq"]
+
+[ext_resource type="Script" uid="uid://c7iuxynhyhqj3" path="res://scripts/battery.gd" id="1_bavnn"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_a63ku"]
+height = 0.5
+radius = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bavnn"]
+albedo_color = Color(0.0530741, 0.0808699, 0.000457056, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_bavnn"]
+top_radius = 0.099
+bottom_radius = 0.099
+height = 0.35
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ytmnr"]
+albedo_color = Color(0.545098, 0.298039, 0.0196078, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_op1cn"]
+top_radius = 0.1
+bottom_radius = 0.1
+height = 0.15
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ytmnr"]
+top_radius = 0.06
+bottom_radius = 0.06
+height = 0.02
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_y10rp"]
+top_radius = 0.02
+bottom_radius = 0.02
+height = 0.02
+
+[node name="Battery" type="Area3D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_bavnn")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CylinderShape3D_a63ku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.071078, 0, 0)
+material_override = SubResource("StandardMaterial3D_bavnn")
+mesh = SubResource("CylinderMesh_bavnn")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.175928, 0, 0)
+material_override = SubResource("StandardMaterial3D_ytmnr")
+mesh = SubResource("CylinderMesh_op1cn")
+skeleton = NodePath("../MeshInstance3D")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.247998, 0, 0)
+mesh = SubResource("CylinderMesh_ytmnr")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.262211, -0.000503108, -0.00267719)
+mesh = SubResource("CylinderMesh_y10rp")
+skeleton = NodePath("../MeshInstance3D2")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.239015, 0, 0)
+mesh = SubResource("CylinderMesh_ytmnr")
+skeleton = NodePath("../MeshInstance3D2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://c5sadmdcxhyxw"]
+
+[ext_resource type="Script" uid="uid://bombasrnoko1y" path="res://scripts/main_game.gd" id="1_72e8q"]
+[ext_resource type="PackedScene" uid="uid://2dlmenvee0k8" path="res://scenes/setting_menu.tscn" id="2_d2op2"]
+[ext_resource type="PackedScene" uid="uid://fosfuwcbck3u" path="res://scenes/lighting_test.tscn" id="2_ipu61"]
+[ext_resource type="PackedScene" uid="uid://d26qs8etihkmt" path="res://scenes/player_3d.tscn" id="4_ygxny"]
+[ext_resource type="PackedScene" uid="uid://brf05vc778n02" path="res://scenes/lightning_manager.tscn" id="5_wi4c7"]
+[ext_resource type="Script" uid="uid://dn7gkaax7onba" path="res://scripts/setting_menu_canva.gd" id="5_ygxny"]
+[ext_resource type="PackedScene" uid="uid://cu70k1i838jgq" path="res://scenes/battery.tscn" id="7_wi4c7"]
+
+[node name="MainGame" type="Node3D" node_paths=PackedStringArray("player")]
+script = ExtResource("1_72e8q")
+player = NodePath("Player3D")
+
+[node name="LightningTest" parent="." instance=ExtResource("2_ipu61")]
+
+[node name="LightningManager" parent="." instance=ExtResource("5_wi4c7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.7489, 9.53674e-07, 6.74067)
+
+[node name="Player3D" parent="." instance=ExtResource("4_ygxny")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.99)
+
+[node name="MenuCanva" type="CanvasLayer" parent="." node_paths=PackedStringArray("setting_menu")]
+script = ExtResource("5_ygxny")
+setting_menu = NodePath("SettingMenu")
+
+[node name="PanelContainer" type="PanelContainer" parent="MenuCanva"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+
+[node name="SettingMenu" parent="MenuCanva" instance=ExtResource("2_d2op2")]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Battery" parent="." instance=ExtResource("7_wi4c7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.89615, 0.5, -9.03312)
+
+[connection signal="battery_replenish" from="Battery" to="." method="_on_battery_battery_replenish"]
