@@ -35,6 +35,6 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("night_vision"):
 		flashlight_on = !flashlight_on
 
-func _physics_process(delta) -> void:
+func _physics_process(_delta) -> void:
 	if flashlight.light_energy == 16:
 		battery_life.value -= 0.5
