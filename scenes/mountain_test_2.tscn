@@ -1,0 +1,60 @@
+[gd_scene load_steps=10 format=3 uid="uid://cbipj6y1w5aec"]
+
+[ext_resource type="Texture2D" uid="uid://bcb33yktefbd4" path="res://textures/rock029_albedo_height.png" id="1_8rqk6"]
+[ext_resource type="PackedScene" uid="uid://d26qs8etihkmt" path="res://scenes/player_3d.tscn" id="1_r81r0"]
+[ext_resource type="Texture2D" uid="uid://b124fhl1d8mfv" path="res://textures/rock029_normal_roughness.png" id="2_i6p4o"]
+[ext_resource type="Terrain3DMaterial" uid="uid://jsi47xyghc2e" path="res://materials/canyon_terrain_3d_material.tres" id="2_sufv8"]
+[ext_resource type="Environment" uid="uid://dwmeb5ekydwco" path="res://environments/dark_env.tres" id="5_sufv8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_veq4a"]
+transparency = 4
+cull_mode = 2
+vertex_color_use_as_albedo = true
+backlight_enabled = true
+backlight = Color(0.5, 0.5, 0.5, 1)
+distance_fade_mode = 1
+distance_fade_min_distance = 128.0
+distance_fade_max_distance = 96.0
+
+[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_p6d1t"]
+generated_type = 1
+height_offset = 0.5
+material_override = SubResource("StandardMaterial3D_veq4a")
+last_lod = 0
+last_shadow_lod = 0
+lod0_range = 128.0
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_sufv8"]
+name = "rock056_alb_ht"
+albedo_texture = ExtResource("1_8rqk6")
+normal_texture = ExtResource("2_i6p4o")
+normal_depth = 1.0
+ao_strength = 2.0
+detiling_rotation = 0.143
+detiling_shift = 0.125
+
+[sub_resource type="Terrain3DAssets" id="Terrain3DAssets_njeik"]
+mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_p6d1t")])
+texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_sufv8")])
+
+[node name="MountainTest2" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.64059, -0.18448, -0.745394, -0.732082, -0.14622, 0.665339, -0.231733, 0.971898, -0.041387, 0, 992.455, 0)
+light_energy = 3.944
+light_angular_distance = 0.5
+shadow_enabled = true
+sky_mode = 1
+
+[node name="Terrain3D" type="Terrain3D" parent="."]
+data_directory = "res://terrain_zion"
+material = ExtResource("2_sufv8")
+assets = SubResource("Terrain3DAssets_njeik")
+top_level = true
+metadata/_edit_lock_ = true
+
+[node name="Player3D" parent="." instance=ExtResource("1_r81r0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1320.86, 623.896, 317.235)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("5_sufv8")

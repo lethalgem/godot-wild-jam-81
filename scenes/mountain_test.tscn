@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://ctk31d8238xvm"]
 
 [ext_resource type="PackedScene" uid="uid://d26qs8etihkmt" path="res://scenes/player_3d.tscn" id="1_tvl7f"]
-[ext_resource type="PackedScene" uid="uid://b8w4pyxonalvt" path="res://scenes/lightning_manager.tscn" id="2_jj7pm"]
+[ext_resource type="PackedScene" uid="uid://brf05vc778n02" path="res://scenes/lightning_manager.tscn" id="2_jj7pm"]
 
 [sub_resource type="Gradient" id="Gradient_vr1m7"]
 offsets = PackedFloat32Array(0.2, 1)
