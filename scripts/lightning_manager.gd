@@ -42,7 +42,7 @@ func start_sequence_lightning():
 		
 	await change_to_env(subtle_flash_env,randf_range(0.7,1.0),0.05)
 	await change_to_env(dark_env,randf_range(0.05,0.2),0.0)
-	play_thunder_audio()
+	#play_thunder_audio()
 	await get_tree().create_timer(randf_range(3.0,6.0)).timeout
 	start_sequence_lightning()
 	
