@@ -1,0 +1,19 @@
+[gd_resource type="Environment" load_steps=2 format=3 uid="uid://cv2k6xqpak60y"]
+
+[ext_resource type="Sky" uid="uid://bbvmi4mg4x10p" path="res://skies/black_sky.tres" id="1_m8ugp"]
+
+[resource]
+background_mode = 2
+background_energy_multiplier = 0.75
+sky = ExtResource("1_m8ugp")
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_sky_contribution = 0.0
+ambient_light_energy = 0.0
+tonemap_mode = 3
+tonemap_exposure = 3.58
+fog_enabled = true
+fog_light_color = Color(0, 0, 0, 1)
+fog_density = 0.0
+fog_sky_affect = 0.0
+fog_height = 1023.35
+fog_height_density = 0.008

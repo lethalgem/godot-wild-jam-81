@@ -6,4 +6,8 @@
 background_mode = 2
 background_energy_multiplier = 0.0
 sky = ExtResource("1_flvwv")
-fog_light_energy = 6.52
+fog_enabled = true
+fog_light_color = Color(0, 0, 0, 1)
+fog_light_energy = 3.45
+fog_sky_affect = 0.03
+fog_height_density = 6.9703
