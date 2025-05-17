@@ -8,7 +8,7 @@ class_name SettingsMenu extends Control
 
 var is_fullscreen := false
 
-func toggle_menu():
+func show_menu():
 	self.visible = true
 	dim_rect.visible = true
 

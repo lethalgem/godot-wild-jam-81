@@ -7,6 +7,8 @@ func _process(delta):
 	if Input.is_action_just_pressed("pause"):
 		show_menu = !show_menu
 		if show_menu:
-			setting_menu.toggle_menu()
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			setting_menu.show_menu()
 		else:
 			setting_menu.dismiss_menu()
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
