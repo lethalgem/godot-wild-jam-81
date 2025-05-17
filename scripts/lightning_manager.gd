@@ -9,8 +9,11 @@ class_name Lightning_Manager extends Node3D
 	preload('res://assets/sfx/Thunder_Sounds/Distant/mixkit-thunder-rumble-and-light-rain-2401.wav'),
 	preload('res://assets/sfx/Thunder_Sounds/Distant/mixkit-thunderstorm-background-sound-2398.wav'),]
 @onready var close_thunder_audio_pool := [preload("res://assets/sfx/Thunder_Sounds/Close/mixkit-nature-ambience-with-lightning-strike-and-thunder-3093.wav"),
-preload("res://assets/sfx/Thunder_Sounds/Close/mixkit-thunder-with-rain-in-the-storm-1294.wav")]
+	preload("res://assets/sfx/Thunder_Sounds/Close/mixkit-thunder-with-rain-in-the-storm-1294.wav")]
+
 var tween : Tween
+var max_directional_light_energy := 6.0
+var max_sky_light_energy := 0.75
 
 func _ready():
 	change_to_env(0.0,0.0,0.0)
@@ -21,15 +24,15 @@ func start_sequence_lightning():
 	directional_light.rotation = Vector3(250,randf_range(-360, 360),0)
 	var subtle_flash_timing = randf_range(0.01,0.2)
 	
-	for i in randi_range(0,1.5):
+	for i in randi_range(0, 2):
 		await change_to_env(0.34,subtle_flash_timing,0.05)
 		await change_to_env(0.0,0.2,0.01)
 		
 	await change_to_env(0.34,subtle_flash_timing,0.05)
 	for i in randi_range(0,1):
-		await change_to_env(1.93,subtle_flash_timing,0.8)
+		await change_to_env(max_sky_light_energy,subtle_flash_timing,max_directional_light_energy)
 		
-	await change_to_env(1.93,randf_range(0.1,0.3),1.0)
+	await change_to_env(max_sky_light_energy,randf_range(0.1,0.3),max_directional_light_energy)
 	await change_to_env(0.34,randf_range(0.7,1.0),0.3)
 	await change_to_env(0.0,randf_range(0.05,0.2),0.1)
 	
@@ -39,7 +42,7 @@ func start_sequence_lightning():
 		
 	await change_to_env(0.34,randf_range(0.7,1.0),0.05)
 	await change_to_env(0.0,randf_range(0.05,0.2),0.0)
-	play_thunder_audio(false)
+	#play_thunder_audio(false)
 	await get_tree().create_timer(randf_range(2.5,5.0)).timeout
 	lightning_pattern_two()
 	

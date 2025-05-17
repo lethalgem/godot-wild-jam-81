@@ -1,12 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://bj2rtxodhdnh0"]
+[gd_scene load_steps=13 format=3 uid="uid://bj2rtxodhdnh0"]
 
 [ext_resource type="Terrain3DMaterial" uid="uid://dsr2sxeesybs6" path="res://materials/terrain003_3d_material.tres" id="1_qyfho"]
 [ext_resource type="Texture2D" uid="uid://b7wikpm3njyqb" path="res://textures/rock029_alb_ht.dds" id="2_qyfho"]
 [ext_resource type="Texture2D" uid="uid://ehrocnqpikow" path="res://textures/rock029_nrm_rgh.dds" id="3_pr5af"]
 [ext_resource type="Texture2D" uid="uid://btvpsllixhbgo" path="res://textures/rocks008_alb_ht.dds" id="4_1rnsr"]
 [ext_resource type="Texture2D" uid="uid://c3lg6rnqcj3c" path="res://textures/rocks008_nrm_rgh.dds" id="5_wciih"]
-[ext_resource type="Environment" uid="uid://cv2k6xqpak60y" path="res://environments/lightning_env.tres" id="6_pr5af"]
-[ext_resource type="Script" uid="uid://c86h316umyl25" path="res://scripts/lightning_manager.gd" id="7_1rnsr"]
+[ext_resource type="PackedScene" uid="uid://brf05vc778n02" path="res://scenes/lightning_manager.tscn" id="7_1rnsr"]
 [ext_resource type="PackedScene" uid="uid://d26qs8etihkmt" path="res://scenes/player_3d.tscn" id="7_pr5af"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_52hac"]
@@ -59,21 +58,6 @@ top_level = true
 metadata/_edit_lock_ = true
 
 [node name="Player3D" parent="." instance=ExtResource("7_pr5af")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 301.686, 1500.76, -2348.3)
+transform = Transform3D(-0.979512, 0, -0.201386, 0, 1, 0, 0.201386, 0, -0.979512, 301.686, 1498.44, -2340.01)
 
-[node name="Lightning_Manager" type="Node3D" parent="." node_paths=PackedStringArray("directional_light", "world_environment")]
-script = ExtResource("7_1rnsr")
-directional_light = NodePath("DirectionalLight3D")
-world_environment = NodePath("WorldEnvironment")
-metadata/_custom_type_script = "uid://c86h316umyl25"
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lightning_Manager"]
-transform = Transform3D(0.984431, -0.158255, -0.0764929, 0.170468, 0.753487, 0.634978, -0.042852, -0.638132, 0.768734, 0, 3322, 0)
-shadow_enabled = true
-shadow_opacity = 0.97
-directional_shadow_mode = 0
-directional_shadow_fade_start = 1.0
-directional_shadow_max_distance = 4920.8
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="Lightning_Manager"]
-environment = ExtResource("6_pr5af")
+[node name="Lightning_Manager" parent="." instance=ExtResource("7_1rnsr")]
