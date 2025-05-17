@@ -44,8 +44,10 @@ spot_range = 6.66569
 spot_angle = 24.0204
 
 [node name="BatteryLife" type="ProgressBar" parent="PlayerCam/Flashlight"]
-offset_right = 396.0
-offset_bottom = 27.0
+offset_left = 16.0
+offset_top = 599.0
+offset_right = 412.0
+offset_bottom = 626.0
 max_value = 1000.0
 value = 1000.0
 

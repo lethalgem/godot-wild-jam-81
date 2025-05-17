@@ -1,9 +1,25 @@
 class_name SettingsMenu extends Control
 
+
 @export var button_sound_player: AudioStreamPlayer
 @export var fullscreen_button : Button
 
+@onready var dim_rect := $"../PanelContainer"
+
 var is_fullscreen := false
+
+func toggle_menu():
+	self.visible = true
+	dim_rect.visible = true
+
+func dismiss_menu():
+	self.visible = false
+	dim_rect.visible = false
+	
+func _on_go_back_button_up() -> void:
+	self.visible = false
+	dim_rect.visible = false
+	button_sound_player.play()
 
 func _on_fullscreen_toggle_button_up() -> void:
 	is_fullscreen = !is_fullscreen
@@ -14,9 +30,5 @@ func _on_fullscreen_toggle_button_up() -> void:
 	else:
 		fullscreen_button.text = "Fullscreen"
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-
-func _on_go_back_button_up() -> void:
-	#dim_rect.visible = false
-	self.visible = false
-	#start_menu.show()
+		
 	button_sound_player.play()

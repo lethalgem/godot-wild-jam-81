@@ -50,7 +50,6 @@ func play_thunder_audio():
 	var sound_lag = randf_range(0.5,1.5)
 	var sound : AudioStream
 	var volume : float = -sound_lag * 3.0
-	
 	if sound_lag >= 1.0:
 		sound = distant_thunder_audio_pool.pick_random()
 	else:
@@ -61,6 +60,7 @@ func play_thunder_audio():
 	
 	thunder_audio_player.volume_db = volume
 	thunder_audio_player.stream = sound
+	thunder_audio_player.bus = 'sfx'
 	await get_tree().create_timer(sound_lag).timeout
 	thunder_audio_player.play()
 	

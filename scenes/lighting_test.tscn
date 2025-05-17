@@ -1,12 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://fosfuwcbck3u"]
+[gd_scene load_steps=2 format=3 uid="uid://fosfuwcbck3u"]
 
-[ext_resource type="PackedScene" uid="uid://d26qs8etihkmt" path="res://scenes/player_3d.tscn" id="2_c4ibi"]
 [ext_resource type="PackedScene" uid="uid://brf05vc778n02" path="res://scenes/lightning_manager.tscn" id="2_w07b1"]
 
 [node name="LightningTest" type="Node3D"]
-
-[node name="Player3D" parent="." instance=ExtResource("2_c4ibi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(60, 0, 0, 0, 1, 0, 0, 0, 30, 0, -0.5, 0)
@@ -15,7 +11,7 @@ use_collision = true
 [node name="LightningManager" parent="." instance=ExtResource("2_w07b1")]
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.08891, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.93912, 1.08891, 0)
 
 [node name="CSGCylinder3D5" type="CSGCylinder3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.4807, 1.03258, -7.10147)
