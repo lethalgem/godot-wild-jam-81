@@ -37,7 +37,6 @@ func _physics_process(_delta) -> void:
 			dead_battery()
 
 func battery_replenish():
-	print(battery_life.value * 0.2)
 	battery_life.value += battery_life.value * 0.2
 
 func dead_battery():
