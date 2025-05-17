@@ -1,11 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://fosfuwcbck3u"]
+[gd_scene load_steps=2 format=3 uid="uid://fosfuwcbck3u"]
 
-[ext_resource type="PackedScene" uid="uid://d26qs8etihkmt" path="res://scenes/player_3d.tscn" id="1_w07b1"]
 [ext_resource type="PackedScene" uid="uid://brf05vc778n02" path="res://scenes/lightning_manager.tscn" id="2_w07b1"]
 
 [node name="LightningTest" type="Node3D"]
-
-[node name="Player3D" parent="." instance=ExtResource("1_w07b1")]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(60, 0, 0, 0, 1, 0, 0, 0, 30, 0, -0.5, 0)

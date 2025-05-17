@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bj2rtxodhdnh0"]
+[gd_scene load_steps=12 format=3 uid="uid://bj2rtxodhdnh0"]
 
 [ext_resource type="Terrain3DMaterial" uid="uid://dsr2sxeesybs6" path="res://materials/terrain003_3d_material.tres" id="1_qyfho"]
 [ext_resource type="Texture2D" uid="uid://b7wikpm3njyqb" path="res://textures/rock029_alb_ht.dds" id="2_qyfho"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://btvpsllixhbgo" path="res://textures/rocks008_alb_ht.dds" id="4_1rnsr"]
 [ext_resource type="Texture2D" uid="uid://c3lg6rnqcj3c" path="res://textures/rocks008_nrm_rgh.dds" id="5_wciih"]
 [ext_resource type="PackedScene" uid="uid://brf05vc778n02" path="res://scenes/lightning_manager.tscn" id="7_1rnsr"]
-[ext_resource type="PackedScene" uid="uid://d26qs8etihkmt" path="res://scenes/player_3d.tscn" id="7_pr5af"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_52hac"]
 transparency = 4
@@ -56,8 +55,5 @@ assets = SubResource("Terrain3DAssets_7qnta")
 mesh_lods = 10
 top_level = true
 metadata/_edit_lock_ = true
-
-[node name="Player3D" parent="." instance=ExtResource("7_pr5af")]
-transform = Transform3D(-0.979512, 0, -0.201386, 0, 1, 0, 0.201386, 0, -0.979512, 301.686, 1498.44, -2340.01)
 
 [node name="Lightning_Manager" parent="." instance=ExtResource("7_1rnsr")]
