@@ -1,19 +1,22 @@
 [gd_scene load_steps=3 format=3 uid="uid://brf05vc778n02"]
 
 [ext_resource type="Script" uid="uid://c86h316umyl25" path="res://scripts/lightning_manager.gd" id="1_bh0cj"]
+[ext_resource type="Environment" uid="uid://cv2k6xqpak60y" path="res://environments/lightning_env.tres" id="2_pu3t3"]
 
-[sub_resource type="Environment" id="Environment_bh0cj"]
-
-[node name="LightningManager" type="Node3D" node_paths=PackedStringArray("directional_light", "world_environment")]
+[node name="Lightning_Manager" type="Node3D" node_paths=PackedStringArray("directional_light", "world_environment")]
 script = ExtResource("1_bh0cj")
 directional_light = NodePath("DirectionalLight3D")
 world_environment = NodePath("WorldEnvironment")
+metadata/_custom_type_script = "uid://c86h316umyl25"
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.589196, -0.753817, -0.290874, 0, -0.359997, 0.932953, -0.80799, 0.549693, 0.212109, 0, 12.4089, 0)
-light_energy = 1.367
+transform = Transform3D(0.984431, -0.158255, -0.0764927, 0.158116, 0.607204, 0.778654, -0.0767788, -0.778626, 0.622774, 0, 3322, 0)
+light_energy = 6.049
 shadow_enabled = true
-sky_mode = 1
+shadow_opacity = 0.97
+directional_shadow_mode = 0
+directional_shadow_fade_start = 1.0
+directional_shadow_max_distance = 4920.8
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_bh0cj")
+environment = ExtResource("2_pu3t3")

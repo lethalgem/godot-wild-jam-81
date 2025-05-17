@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 buses/default_bus_layout="uid://vu3hef7gf340"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/ChannelPacker/plugin.cfg", "res://addons/terrain_3d/plugin.cfg")
+
 [input]
 
 move_left={

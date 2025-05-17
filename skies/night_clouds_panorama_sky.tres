@@ -1,0 +1,17 @@
+[gd_resource type="PanoramaSkyMaterial" load_steps=4 format=3 uid="uid://dklhnwr47emr6"]
+
+[sub_resource type="Gradient" id="Gradient_wip2f"]
+offsets = PackedFloat32Array(0.165899, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_beard"]
+noise_type = 3
+frequency = 0.0548
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_itrep"]
+in_3d_space = true
+seamless = true
+color_ramp = SubResource("Gradient_wip2f")
+noise = SubResource("FastNoiseLite_beard")
+
+[resource]
+panorama = SubResource("NoiseTexture2D_itrep")
