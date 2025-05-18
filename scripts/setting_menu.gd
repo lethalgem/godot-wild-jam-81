@@ -1,5 +1,6 @@
 class_name SettingsMenu extends Control
 
+signal back_button_pressed
 
 @export var button_sound_player: AudioStreamPlayer
 @export var fullscreen_button : Button
@@ -20,6 +21,7 @@ func _on_go_back_button_up() -> void:
 	self.visible = false
 	dim_rect.visible = false
 	button_sound_player.play()
+	back_button_pressed.emit()
 
 func _on_fullscreen_toggle_button_up() -> void:
 	is_fullscreen = !is_fullscreen
