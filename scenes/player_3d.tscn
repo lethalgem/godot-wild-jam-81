@@ -70,10 +70,12 @@ spot_range = 6.66569
 spot_angle = 24.0204
 
 [node name="BatteryLife" type="ProgressBar" parent="PlayerCam/Area3D"]
-offset_left = 16.0
-offset_top = 599.0
-offset_right = 412.0
-offset_bottom = 626.0
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -27.0
+offset_right = 396.0
+grow_vertical = 0
 max_value = 1000.0
 value = 1000.0
 
