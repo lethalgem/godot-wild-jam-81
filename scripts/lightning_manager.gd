@@ -16,7 +16,7 @@ var max_directional_light_energy := 6.0
 var max_sky_light_energy := 1.0
 
 func _ready():
-	change_to_env(0.0,0.0,0.0)
+	await change_to_env(0.0, 1.0, 0.0)
 	
 	while true:
 		await start_sequence_lightning()
