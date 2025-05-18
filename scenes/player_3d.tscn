@@ -38,6 +38,7 @@ mesh = SubResource("CapsuleMesh_2djwe")
 
 [node name="PlayerCam" type="Camera3D" parent="." node_paths=PackedStringArray("flashlight", "battery_life")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.61224, 0)
+far = 10000.0
 script = ExtResource("2_3fu5i")
 flashlight = NodePath("Area3D/SpotLight3D")
 battery_life = NodePath("Area3D/BatteryLife")
@@ -85,4 +86,4 @@ visible = false
 material = ExtResource("1_b6dr0")
 
 [node name="FootstepPlayer3D" type="AudioStreamPlayer3D" parent="."]
-volume_db = -25.052
+volume_db = -10.0

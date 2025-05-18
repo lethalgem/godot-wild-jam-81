@@ -4,14 +4,14 @@
 
 [resource]
 background_mode = 2
-background_energy_multiplier = 0.75
+background_energy_multiplier = 0.5
 sky = ExtResource("1_m8ugp")
 ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_sky_contribution = 0.0
 ambient_light_energy = 0.0
 tonemap_mode = 3
 tonemap_exposure = 3.58
-glow_hdr_threshold = 1.5
+sdfgi_enabled = true
 fog_enabled = true
 fog_light_color = Color(0, 0, 0, 1)
 fog_density = 0.0

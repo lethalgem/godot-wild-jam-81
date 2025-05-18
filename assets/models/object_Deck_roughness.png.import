@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c6jmwigahmuge"
 path.s3tc="res://.godot/imported/object_Deck_roughness.png-6b4f4a57ec48e48d3e95bb216329d07e.s3tc.ctex"
+path.etc2="res://.godot/imported/object_Deck_roughness.png-6b4f4a57ec48e48d3e95bb216329d07e.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/models/object_Deck_roughness.png"
-dest_files=["res://.godot/imported/object_Deck_roughness.png-6b4f4a57ec48e48d3e95bb216329d07e.s3tc.ctex"]
+dest_files=["res://.godot/imported/object_Deck_roughness.png-6b4f4a57ec48e48d3e95bb216329d07e.s3tc.ctex", "res://.godot/imported/object_Deck_roughness.png-6b4f4a57ec48e48d3e95bb216329d07e.etc2.ctex"]
 
 [params]
 

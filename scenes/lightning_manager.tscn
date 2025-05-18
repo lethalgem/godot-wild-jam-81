@@ -10,13 +10,13 @@ world_environment = NodePath("WorldEnvironment")
 metadata/_custom_type_script = "uid://c86h316umyl25"
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.984431, -0.158255, -0.0764927, 0.158116, 0.607204, 0.778654, -0.0767788, -0.778626, 0.622774, 0, 3322, 0)
+transform = Transform3D(0.978855, -0.17971, -0.0977119, 0.202103, 0.775886, 0.597625, -0.031586, -0.604736, 0.795799, 0, 3322, 0)
 light_energy = 2.0
 shadow_enabled = true
 shadow_opacity = 0.97
 directional_shadow_mode = 0
 directional_shadow_fade_start = 1.0
-directional_shadow_max_distance = 4920.8
+directional_shadow_max_distance = 8192.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("2_pu3t3")

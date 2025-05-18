@@ -1,8 +1,8 @@
 [gd_scene load_steps=14 format=3 uid="uid://bwa6y7wtxewj2"]
 
 [ext_resource type="Script" uid="uid://bombasrnoko1y" path="res://scripts/main_game.gd" id="1_72e8q"]
-[ext_resource type="PackedScene" uid="uid://bj2rtxodhdnh0" path="res://scenes/mountain_test_3.tscn" id="2_70vka"]
 [ext_resource type="PackedScene" uid="uid://2dlmenvee0k8" path="res://scenes/setting_menu.tscn" id="2_d2op2"]
+[ext_resource type="PackedScene" uid="uid://5pkxhppm2j58" path="res://scenes/terrain003.tscn" id="2_nqdth"]
 [ext_resource type="PackedScene" uid="uid://d26qs8etihkmt" path="res://scenes/player_3d.tscn" id="4_ygxny"]
 [ext_resource type="PackedScene" uid="uid://bive5i5x8ektd" path="res://scenes/rain_particles.tscn" id="5_2l77h"]
 [ext_resource type="PackedScene" uid="uid://brf05vc778n02" path="res://scenes/lightning_manager.tscn" id="5_wi4c7"]
@@ -24,7 +24,7 @@ player = NodePath("Player3D")
 finish_line_area = NodePath("FinishLineArea")
 end_game_screen = NodePath("EndGameScreen")
 
-[node name="MountainTest3" parent="." instance=ExtResource("2_70vka")]
+[node name="Mountain" parent="." instance=ExtResource("2_nqdth")]
 
 [node name="LightningManager" parent="." instance=ExtResource("5_wi4c7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.7489, 9.53674e-07, 6.74067)
@@ -89,6 +89,7 @@ transform = Transform3D(0.243409, -0.234163, -0.941233, -0.297129, 0.905761, -0.
 stream = ExtResource("10_nqdth")
 volume_db = -16.14
 autoplay = true
+bus = &"ambience"
 
 [node name="GlowingItem" parent="." instance=ExtResource("11_5cypo")]
 transform = Transform3D(1, 0, 0, 0, 0.999556, 0.0298058, 0, -0.0298058, 0.999556, -131.361, 1622.35, -1752.33)

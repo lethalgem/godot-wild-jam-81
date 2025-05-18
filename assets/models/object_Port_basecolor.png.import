@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bpq5rkcqyknj3"
 path.s3tc="res://.godot/imported/object_Port_basecolor.png-7d43ebeafb8f6a5ec43545c1e700ff25.s3tc.ctex"
+path.etc2="res://.godot/imported/object_Port_basecolor.png-7d43ebeafb8f6a5ec43545c1e700ff25.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/models/object_Port_basecolor.png"
-dest_files=["res://.godot/imported/object_Port_basecolor.png-7d43ebeafb8f6a5ec43545c1e700ff25.s3tc.ctex"]
+dest_files=["res://.godot/imported/object_Port_basecolor.png-7d43ebeafb8f6a5ec43545c1e700ff25.s3tc.ctex", "res://.godot/imported/object_Port_basecolor.png-7d43ebeafb8f6a5ec43545c1e700ff25.etc2.ctex"]
 
 [params]
 

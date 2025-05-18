@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://4lncb4nlq5bv"
 path.s3tc="res://.godot/imported/object_Deck_normal.png-50ec6f8d79199f9527e2389a01b980db.s3tc.ctex"
+path.etc2="res://.godot/imported/object_Deck_normal.png-50ec6f8d79199f9527e2389a01b980db.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/models/object_Deck_normal.png"
-dest_files=["res://.godot/imported/object_Deck_normal.png-50ec6f8d79199f9527e2389a01b980db.s3tc.ctex"]
+dest_files=["res://.godot/imported/object_Deck_normal.png-50ec6f8d79199f9527e2389a01b980db.s3tc.ctex", "res://.godot/imported/object_Deck_normal.png-50ec6f8d79199f9527e2389a01b980db.etc2.ctex"]
 
 [params]
 

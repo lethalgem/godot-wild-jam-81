@@ -135,9 +135,7 @@ void sky() {
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_8hhij"]
 noise_type = 3
-frequency = 0.049
-fractal_gain = 0.69
-fractal_weighted_strength = 0.3
+frequency = 0.1523
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_eqrq0"]
 seamless = true
@@ -147,7 +145,7 @@ noise = SubResource("FastNoiseLite_8hhij")
 shader = SubResource("Shader_8hhij")
 shader_parameter/sky_top_color = Color(1, 1, 1, 1)
 shader_parameter/sky_horizon_color = Color(0, 0, 0, 1)
-shader_parameter/sky_curve = 0.295
+shader_parameter/sky_curve = 1.0
 shader_parameter/sky_energy = 0.355
 shader_parameter/sky_cover = SubResource("NoiseTexture2D_eqrq0")
 shader_parameter/sky_cover_modulate = Color(0.226707, 0.226707, 0.226707, 1)
@@ -157,9 +155,9 @@ shader_parameter/ground_curve = 0.02
 shader_parameter/ground_energy = 1.0
 shader_parameter/sun_angle_max = 0.0
 shader_parameter/sun_curve = 0.15
-shader_parameter/exposure = 1.0
+shader_parameter/exposure = 0.497
 shader_parameter/wind_offset_direction = Vector2(0.5, 0.1)
-shader_parameter/wind_speed = 0.19
+shader_parameter/wind_speed = 1.099
 shader_parameter/clouds_change = true
 shader_parameter/cloud_change_rate = 0.944
 shader_parameter/pole_blend_shape = 0.05

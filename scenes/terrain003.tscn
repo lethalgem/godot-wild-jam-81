@@ -1,0 +1,55 @@
+[gd_scene load_steps=11 format=3 uid="uid://5pkxhppm2j58"]
+
+[ext_resource type="Terrain3DMaterial" uid="uid://dsr2sxeesybs6" path="res://materials/terrain003_3d_material.tres" id="1_hya73"]
+[ext_resource type="Texture2D" uid="uid://b7wikpm3njyqb" path="res://textures/rock029_alb_ht.dds" id="2_4ok4x"]
+[ext_resource type="Texture2D" uid="uid://ehrocnqpikow" path="res://textures/rock029_nrm_rgh.dds" id="3_6aw02"]
+[ext_resource type="Texture2D" uid="uid://btvpsllixhbgo" path="res://textures/rocks008_alb_ht.dds" id="4_jatah"]
+[ext_resource type="Texture2D" uid="uid://c3lg6rnqcj3c" path="res://textures/rocks008_nrm_rgh.dds" id="5_ims11"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_52hac"]
+transparency = 4
+cull_mode = 2
+vertex_color_use_as_albedo = true
+backlight_enabled = true
+backlight = Color(0.5, 0.5, 0.5, 1)
+distance_fade_mode = 1
+distance_fade_min_distance = 128.0
+distance_fade_max_distance = 96.0
+
+[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_a5imj"]
+generated_type = 1
+height_offset = 0.5
+material_override = SubResource("StandardMaterial3D_52hac")
+last_lod = 0
+last_shadow_lod = 0
+lod0_range = 128.0
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_wjiv5"]
+name = "rock029_albedo_height"
+albedo_color = Color(0.779291, 0.779291, 0.779291, 1)
+albedo_texture = ExtResource("2_4ok4x")
+normal_texture = ExtResource("3_6aw02")
+roughness = -0.234
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_pr5af"]
+name = "ground078_albedo_height"
+id = 1
+albedo_color = Color(0.930675, 0.722142, 0.572703, 1)
+albedo_texture = ExtResource("4_jatah")
+normal_texture = ExtResource("5_ims11")
+normal_depth = 0.992
+roughness = -0.778
+uv_scale = 0.812
+detiling_rotation = 0.24
+
+[sub_resource type="Terrain3DAssets" id="Terrain3DAssets_7qnta"]
+mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_a5imj")])
+texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_wjiv5"), SubResource("Terrain3DTextureAsset_pr5af")])
+
+[node name="Terrain3D" type="Terrain3D"]
+data_directory = "res://terrain_003"
+material = ExtResource("1_hya73")
+assets = SubResource("Terrain3DAssets_7qnta")
+mesh_lods = 10
+top_level = true
+metadata/_edit_lock_ = true
