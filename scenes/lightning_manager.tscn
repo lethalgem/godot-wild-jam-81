@@ -11,7 +11,7 @@ metadata/_custom_type_script = "uid://c86h316umyl25"
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.978855, -0.17971, -0.0977119, 0.202103, 0.775886, 0.597625, -0.031586, -0.604736, 0.795799, 0, 3322, 0)
-light_energy = 2.0
+light_energy = 6.0
 shadow_enabled = true
 shadow_opacity = 0.97
 directional_shadow_mode = 0
