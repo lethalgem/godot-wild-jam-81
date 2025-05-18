@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://bwa6y7wtxewj2"]
+[gd_scene load_steps=12 format=3 uid="uid://bwa6y7wtxewj2"]
 
 [ext_resource type="Script" uid="uid://bombasrnoko1y" path="res://scripts/main_game.gd" id="1_72e8q"]
 [ext_resource type="PackedScene" uid="uid://bj2rtxodhdnh0" path="res://scenes/mountain_test_3.tscn" id="2_70vka"]
 [ext_resource type="PackedScene" uid="uid://2dlmenvee0k8" path="res://scenes/setting_menu.tscn" id="2_d2op2"]
 [ext_resource type="PackedScene" uid="uid://d26qs8etihkmt" path="res://scenes/player_3d.tscn" id="4_ygxny"]
+[ext_resource type="PackedScene" uid="uid://bive5i5x8ektd" path="res://scenes/rain_particles.tscn" id="5_2l77h"]
 [ext_resource type="PackedScene" uid="uid://brf05vc778n02" path="res://scenes/lightning_manager.tscn" id="5_wi4c7"]
 [ext_resource type="Script" uid="uid://dn7gkaax7onba" path="res://scripts/setting_menu_canva.gd" id="5_ygxny"]
 [ext_resource type="PackedScene" uid="uid://ve80b6j2o8vl" path="res://scenes/end_game_screen.tscn" id="7_wi4c7"]
@@ -27,7 +28,16 @@ end_game_screen = NodePath("EndGameScreen")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.7489, 9.53674e-07, 6.74067)
 
 [node name="Player3D" parent="." instance=ExtResource("4_ygxny")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 301.555, 1497.71, -2339.86)
+transform = Transform3D(-0.999112, 0, -0.0421372, 0, 1, 0, 0.0421372, 0, -0.999112, 301.555, 1497.71, -2339.86)
+
+[node name="RainParticles" parent="Player3D" instance=ExtResource("5_2l77h")]
+transform = Transform3D(0.023298, 0, -0.999729, 0, 1, 0, 0.999729, 0, 0.023298, 0, 9.64087, 0)
+rotation_offset = 270.0
+
+[node name="RainParticles2" parent="Player3D" instance=ExtResource("5_2l77h")]
+transform = Transform3D(0.0226874, 0, -0.999743, 0, 1, 0, 0.999743, 0, 0.0226874, 0, 9.641, 0)
+rotation_offset = 270.0
+distance_offset = 10.0
 
 [node name="MenuCanvas" type="CanvasLayer" parent="." node_paths=PackedStringArray("setting_menu")]
 script = ExtResource("5_ygxny")
