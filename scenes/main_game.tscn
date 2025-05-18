@@ -72,10 +72,10 @@ shape = SubResource("BoxShape3D_wi4c7")
 visible = false
 
 [node name="Battery2" parent="." instance=ExtResource("8_70vka")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 162.162, 1545.13, -1841.24)
+transform = Transform3D(0.954891, 0.296958, 0, -0.296958, 0.954891, 0, 0, 0, 1, 165.671, 1544.31, -1841.24)
 
 [node name="Battery" parent="." instance=ExtResource("8_70vka")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 313.922, 1512.95, -2144.41)
+transform = Transform3D(0.960648, -0.267635, 0.0743375, 0.277767, 0.925607, -0.257094, 0, 0.267625, 0.963523, 312.351, 1512.66, -2144.41)
 
 [connection signal="body_entered" from="FinishLineArea" to="." method="_on_finish_line_area_body_entered"]
 [connection signal="body_entered" from="DeathArea" to="." method="_on_death_area_body_entered"]

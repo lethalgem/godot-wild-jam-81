@@ -6,6 +6,7 @@ class_name Player3D extends CharacterBody3D
 @export var gravity_strength := 40
 @export var steering_factor := 20
 
+var jump_count = 0
 var target_velocity = Vector3.ZERO
 
 
@@ -22,3 +23,11 @@ func _physics_process(delta):
 
 	velocity += gravity_strength * delta * Vector3.DOWN
 	move_and_slide()
+	
+	if Input.is_action_pressed("jump") and jump_count <=1:
+		velocity.y = 15.0
+		jump_count += 1
+		print(jump_count)
+	
+	if velocity.y == 0:
+		jump_count = 0
