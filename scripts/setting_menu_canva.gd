@@ -11,7 +11,7 @@ var show_menu := false:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		show_menu = new_value
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("pause"):
 		show_menu = !show_menu
 
