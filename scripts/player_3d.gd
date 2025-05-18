@@ -27,7 +27,6 @@ func _physics_process(delta):
 	if Input.is_action_pressed("jump") and jump_count <=1:
 		velocity.y = 15.0
 		jump_count += 1
-		print(jump_count)
 	
 	if velocity.y == 0:
 		jump_count = 0
