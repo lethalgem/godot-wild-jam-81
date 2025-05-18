@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bwa6y7wtxewj2"]
+[gd_scene load_steps=14 format=3 uid="uid://bwa6y7wtxewj2"]
 
 [ext_resource type="Script" uid="uid://bombasrnoko1y" path="res://scripts/main_game.gd" id="1_72e8q"]
 [ext_resource type="PackedScene" uid="uid://2dlmenvee0k8" path="res://scenes/setting_menu.tscn" id="2_d2op2"]
@@ -10,9 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://ve80b6j2o8vl" path="res://scenes/end_game_screen.tscn" id="7_wi4c7"]
 [ext_resource type="PackedScene" uid="uid://b13cuye6q4cjr" path="res://scenes/battery_pack.tscn" id="8_70vka"]
 [ext_resource type="AudioStream" uid="uid://dednst4bexc6y" path="res://assets/sfx/Thunder_Sounds/Loop/mixkit-heavy-rain-drops-2399.wav" id="10_nqdth"]
+[ext_resource type="PackedScene" uid="uid://cxlvx7iiolkh6" path="res://scenes/object.tscn" id="11_5cypo"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ygxny"]
-size = Vector3(12.2329, 3.1134, 22.6741)
+size = Vector3(45.0352, 3.1134, 41.1461)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wi4c7"]
 size = Vector3(3714.17, 15.3416, 4761.74)
@@ -64,7 +65,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -131.361, 1622.35, -1752.33)
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FinishLineArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.72682, -0.593018, 12.2441)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.07748, -0.593018, 3.00818)
 shape = SubResource("BoxShape3D_ygxny")
 
 [node name="DeathArea" type="Area3D" parent="."]
@@ -88,6 +89,9 @@ transform = Transform3D(0.243409, -0.234163, -0.941233, -0.297129, 0.905761, -0.
 stream = ExtResource("10_nqdth")
 volume_db = -16.14
 autoplay = true
+
+[node name="GlowingItem" parent="." instance=ExtResource("11_5cypo")]
+transform = Transform3D(1, 0, 0, 0, 0.999556, 0.0298058, 0, -0.0298058, 0.999556, -131.361, 1622.35, -1752.33)
 
 [connection signal="back_button_pressed" from="MenuCanvas/SettingMenu" to="MenuCanvas" method="_on_setting_menu_back_button_pressed"]
 [connection signal="body_entered" from="FinishLineArea" to="." method="_on_finish_line_area_body_entered"]
