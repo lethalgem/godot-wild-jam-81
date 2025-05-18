@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://brf05vc778n02" path="res://scenes/lightning_manager.tscn" id="5_wi4c7"]
 [ext_resource type="Script" uid="uid://dn7gkaax7onba" path="res://scripts/setting_menu_canva.gd" id="5_ygxny"]
 [ext_resource type="PackedScene" uid="uid://ve80b6j2o8vl" path="res://scenes/end_game_screen.tscn" id="7_wi4c7"]
-[ext_resource type="PackedScene" uid="uid://cu70k1i838jgq" path="res://scenes/battery.tscn" id="8_70vka"]
+[ext_resource type="PackedScene" uid="uid://b13cuye6q4cjr" path="res://scenes/battery_pack.tscn" id="8_70vka"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ygxny"]
 size = Vector3(12.2329, 3.1134, 22.6741)
@@ -71,15 +71,15 @@ shape = SubResource("BoxShape3D_wi4c7")
 [node name="EndGameScreen" parent="." instance=ExtResource("7_wi4c7")]
 visible = false
 
-[node name="Battery2" parent="." instance=ExtResource("8_70vka")]
-transform = Transform3D(0.954891, 0.296958, 0, -0.296958, 0.954891, 0, 0, 0, 1, 165.671, 1544.31, -1841.24)
+[node name="BatteryPack" parent="." instance=ExtResource("8_70vka")]
+transform = Transform3D(0.928635, 0.370995, 0, -0.370995, 0.928635, 0, 0, 0, 1, 165.671, 1544.33, -1841.27)
 
-[node name="Battery" parent="." instance=ExtResource("8_70vka")]
-transform = Transform3D(0.960648, -0.267635, 0.0743375, 0.277767, 0.925607, -0.257094, 0, 0.267625, 0.963523, 312.351, 1512.66, -2144.41)
+[node name="BatteryPack2" parent="." instance=ExtResource("8_70vka")]
+transform = Transform3D(0.243409, -0.234163, -0.941233, -0.297129, 0.905761, -0.302178, 0.923291, 0.35322, 0.150894, 313.098, 1513.11, -2145.02)
 
 [connection signal="back_button_pressed" from="MenuCanvas/SettingMenu" to="MenuCanvas" method="_on_setting_menu_back_button_pressed"]
 [connection signal="body_entered" from="FinishLineArea" to="." method="_on_finish_line_area_body_entered"]
 [connection signal="body_entered" from="DeathArea" to="." method="_on_death_area_body_entered"]
 [connection signal="restart_pressed" from="EndGameScreen" to="." method="_on_end_game_screen_restart_pressed"]
-[connection signal="battery_replenish" from="Battery2" to="." method="_on_battery_2_battery_replenish"]
-[connection signal="battery_replenish" from="Battery" to="." method="_on_battery_battery_replenish"]
+[connection signal="battery_replenish" from="BatteryPack" to="." method="_on_battery_pack_battery_replenish"]
+[connection signal="battery_replenish" from="BatteryPack2" to="." method="_on_battery_pack_2_battery_replenish"]

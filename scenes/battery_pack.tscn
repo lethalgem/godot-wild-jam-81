@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://b13cuye6q4cjr"]
+
+[ext_resource type="Script" uid="uid://k4xhgmmrrg38" path="res://scripts/battery_pack.gd" id="1_dn3qs"]
+[ext_resource type="PackedScene" uid="uid://cu70k1i838jgq" path="res://scenes/battery.tscn" id="2_eoh8a"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_4ixpo"]
+height = 1.0
+
+[node name="BatteryPack" type="Area3D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_dn3qs")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CylinderShape3D_4ixpo")
+
+[node name="Battery" parent="." instance=ExtResource("2_eoh8a")]
+
+[node name="Battery2" parent="." instance=ExtResource("2_eoh8a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.138563)
+
+[node name="Battery3" parent="." instance=ExtResource("2_eoh8a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.139663, -0.00368591)
+
+[node name="Battery4" parent="." instance=ExtResource("2_eoh8a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.139663, 0.134877)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
