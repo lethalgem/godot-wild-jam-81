@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://ve80b6j2o8vl"]
+[gd_scene load_steps=5 format=3 uid="uid://ve80b6j2o8vl"]
 
 [ext_resource type="Script" uid="uid://bhqtseodn7obn" path="res://scripts/end_game_screen.gd" id="1_7y8om"]
 [ext_resource type="LabelSettings" uid="uid://bo6e4f4ar7ve7" path="res://themes/game_over_title.tres" id="2_70b0o"]
+[ext_resource type="FontFile" uid="uid://cl2rdgm2mxuat" path="res://assets/fonts/Juvanze-ovw9A.otf" id="2_ubscq"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_es3qr"]
 font_size = 30
@@ -38,20 +39,23 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 100
 
-[node name="EngGameTitle" type="Label" parent="Panel/VBoxContainer"]
+[node name="EndGameTitle" type="Label" parent="Panel/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ubscq")
 text = "Game Over"
 label_settings = ExtResource("2_70b0o")
 horizontal_alignment = 1
 
 [node name="BodyText" type="Label" parent="Panel/VBoxContainer"]
 layout_mode = 2
-text = "Thanks for playing [Insert_Title]"
+theme_override_fonts/font = ExtResource("2_ubscq")
+text = "Thanks for playing Expedition Noir"
 label_settings = SubResource("LabelSettings_es3qr")
 horizontal_alignment = 1
 
 [node name="RestartButton" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ubscq")
 theme_override_font_sizes/font_size = 25
 text = "Restart"
 
