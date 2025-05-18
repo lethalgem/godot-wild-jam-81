@@ -68,7 +68,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.72682, -0.593018, 12.2441)
 shape = SubResource("BoxShape3D_ygxny")
 
 [node name="DeathArea" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 229.8, 1437.97, -2273.01)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 229.8, 1451.48, -2273.01)
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DeathArea"]
