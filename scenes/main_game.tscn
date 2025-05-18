@@ -89,6 +89,7 @@ transform = Transform3D(0.243409, -0.234163, -0.941233, -0.297129, 0.905761, -0.
 stream = ExtResource("10_nqdth")
 volume_db = -16.14
 autoplay = true
+bus = &"ambience"
 
 [node name="GlowingItem" parent="." instance=ExtResource("11_5cypo")]
 transform = Transform3D(1, 0, 0, 0, 0.999556, 0.0298058, 0, -0.0298058, 0.999556, -131.361, 1622.35, -1752.33)
