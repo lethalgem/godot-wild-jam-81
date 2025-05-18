@@ -35,13 +35,9 @@ func _physics_process(_delta) -> void:
 		battery_life.value -= 1.0
 		if battery_life.value == 0:
 			dead_battery()
-			
-	if battery_life.value != 0:
-		flashlight_dead = false
-		
 func battery_replenish():
 	battery_life.value += battery_life.value * 0.2
-
+        flashlight_dead = false
 func dead_battery():
 	flashlight_dead = true
 	flashlight_on = false
