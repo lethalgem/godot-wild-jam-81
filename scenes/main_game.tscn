@@ -28,16 +28,11 @@ end_game_screen = NodePath("EndGameScreen")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.7489, 9.53674e-07, 6.74067)
 
 [node name="Player3D" parent="." instance=ExtResource("4_ygxny")]
-transform = Transform3D(-0.999112, 0, -0.0421372, 0, 1, 0, 0.0421372, 0, -0.999112, 301.555, 1497.71, -2339.86)
+transform = Transform3D(-0.999112, 0, -0.0421372, 0, 1, 0, 0.0421372, 0, -0.999112, 301.317, 1498.39, -2339.16)
 
 [node name="RainParticles" parent="Player3D" instance=ExtResource("5_2l77h")]
 transform = Transform3D(0.023298, 0, -0.999729, 0, 1, 0, 0.999729, 0, 0.023298, 0, 9.64087, 0)
 rotation_offset = 270.0
-
-[node name="RainParticles2" parent="Player3D" instance=ExtResource("5_2l77h")]
-transform = Transform3D(0.0226874, 0, -0.999743, 0, 1, 0, 0.999743, 0, 0.0226874, 0, 9.641, 0)
-rotation_offset = 270.0
-distance_offset = 10.0
 
 [node name="MenuCanvas" type="CanvasLayer" parent="." node_paths=PackedStringArray("setting_menu")]
 script = ExtResource("5_ygxny")
