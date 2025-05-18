@@ -30,7 +30,7 @@ name = "rock029_albedo_height"
 albedo_color = Color(0.779291, 0.779291, 0.779291, 1)
 albedo_texture = ExtResource("2_qyfho")
 normal_texture = ExtResource("3_pr5af")
-roughness = 0.664
+roughness = -0.234
 
 [sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_pr5af"]
 name = "ground078_albedo_height"
@@ -39,6 +39,7 @@ albedo_color = Color(0.930675, 0.722142, 0.572703, 1)
 albedo_texture = ExtResource("4_1rnsr")
 normal_texture = ExtResource("5_wciih")
 normal_depth = 0.992
+roughness = -0.778
 uv_scale = 0.812
 detiling_rotation = 0.24
 

@@ -20,7 +20,6 @@ func _ready():
 	lightning_pattern_two()
 	
 func start_sequence_lightning():
-	print("Pattern 1")
 	directional_light.rotation = Vector3(250,randf_range(-360, 360),0)
 	var subtle_flash_timing = randf_range(0.01,0.2)
 	
@@ -47,7 +46,6 @@ func start_sequence_lightning():
 	lightning_pattern_two()
 	
 func lightning_pattern_two():
-	print("Pattern 2")
 	directional_light.rotation = Vector3(250,randf_range(-360, 360),0)
 	var subtle_flash_timing = randf_range(0.01,0.1)
 	
@@ -69,13 +67,10 @@ func play_thunder_audio(force_play_close_audio : bool):
 	
 	if force_play_close_audio:
 		sound = close_thunder_audio_pool.pick_random()
-		print("Close")
 	elif sound_lag >= .5:
 		sound = distant_thunder_audio_pool.pick_random()
-		print("Distant")
 	else:
 		sound = close_thunder_audio_pool.pick_random()
-		print("Close")
 	
 	var thunder_audio_player = AudioStreamPlayer.new()
 	get_parent().add_child(thunder_audio_player)
