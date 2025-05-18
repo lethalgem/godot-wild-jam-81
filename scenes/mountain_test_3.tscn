@@ -1,60 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://bj2rtxodhdnh0"]
+[gd_scene load_steps=3 format=3 uid="uid://bj2rtxodhdnh0"]
 
-[ext_resource type="Terrain3DMaterial" uid="uid://dsr2sxeesybs6" path="res://materials/terrain003_3d_material.tres" id="1_qyfho"]
-[ext_resource type="Texture2D" uid="uid://b7wikpm3njyqb" path="res://textures/rock029_alb_ht.dds" id="2_qyfho"]
-[ext_resource type="Texture2D" uid="uid://ehrocnqpikow" path="res://textures/rock029_nrm_rgh.dds" id="3_pr5af"]
-[ext_resource type="Texture2D" uid="uid://btvpsllixhbgo" path="res://textures/rocks008_alb_ht.dds" id="4_1rnsr"]
-[ext_resource type="Texture2D" uid="uid://c3lg6rnqcj3c" path="res://textures/rocks008_nrm_rgh.dds" id="5_wciih"]
+[ext_resource type="PackedScene" uid="uid://5pkxhppm2j58" path="res://scenes/terrain003.tscn" id="1_j4vau"]
 [ext_resource type="PackedScene" uid="uid://brf05vc778n02" path="res://scenes/lightning_manager.tscn" id="7_1rnsr"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_52hac"]
-transparency = 4
-cull_mode = 2
-vertex_color_use_as_albedo = true
-backlight_enabled = true
-backlight = Color(0.5, 0.5, 0.5, 1)
-distance_fade_mode = 1
-distance_fade_min_distance = 128.0
-distance_fade_max_distance = 96.0
-
-[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_a5imj"]
-generated_type = 1
-height_offset = 0.5
-material_override = SubResource("StandardMaterial3D_52hac")
-last_lod = 0
-last_shadow_lod = 0
-lod0_range = 128.0
-
-[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_wjiv5"]
-name = "rock029_albedo_height"
-albedo_color = Color(0.779291, 0.779291, 0.779291, 1)
-albedo_texture = ExtResource("2_qyfho")
-normal_texture = ExtResource("3_pr5af")
-roughness = -0.234
-
-[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_pr5af"]
-name = "ground078_albedo_height"
-id = 1
-albedo_color = Color(0.930675, 0.722142, 0.572703, 1)
-albedo_texture = ExtResource("4_1rnsr")
-normal_texture = ExtResource("5_wciih")
-normal_depth = 0.992
-roughness = -0.778
-uv_scale = 0.812
-detiling_rotation = 0.24
-
-[sub_resource type="Terrain3DAssets" id="Terrain3DAssets_7qnta"]
-mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_a5imj")])
-texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_wjiv5"), SubResource("Terrain3DTextureAsset_pr5af")])
 
 [node name="MountainTest3" type="Node3D"]
 
-[node name="Terrain3D" type="Terrain3D" parent="."]
-data_directory = "res://terrain_003"
-material = ExtResource("1_qyfho")
-assets = SubResource("Terrain3DAssets_7qnta")
-mesh_lods = 10
-top_level = true
-metadata/_edit_lock_ = true
+[node name="Terrain3D" parent="." instance=ExtResource("1_j4vau")]
 
 [node name="Lightning_Manager" parent="." instance=ExtResource("7_1rnsr")]

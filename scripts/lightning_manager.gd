@@ -13,52 +13,41 @@ class_name Lightning_Manager extends Node3D
 
 var tween : Tween
 var max_directional_light_energy := 6.0
-var max_sky_light_energy := 0.75
+var max_sky_light_energy := 0.5
 
 func _ready():
 	change_to_env(0.0,0.0,0.0)
-	lightning_pattern_two()
 	
+	while true:
+		await start_sequence_lightning()
+		await get_tree().create_timer(randf_range(2.5,5.0)).timeout
+
 func start_sequence_lightning():
-	directional_light.rotation = Vector3(250,randf_range(-360, 360),0)
-	var subtle_flash_timing = randf_range(0.01,0.2)
+	directional_light.rotation = Vector3(directional_light.rotation.x,deg_to_rad(randf_range(-360, 360)),directional_light.rotation.z)
 	
-	for i in randi_range(0, 2):
-		await change_to_env(0.34,subtle_flash_timing,0.05)
-		await change_to_env(0.0,0.2,0.01)
-		
-	await change_to_env(0.34,subtle_flash_timing,0.05)
-	for i in randi_range(0,1):
-		await change_to_env(max_sky_light_energy,subtle_flash_timing,max_directional_light_energy)
-		
-	await change_to_env(max_sky_light_energy,randf_range(0.1,0.3),max_directional_light_energy)
-	await change_to_env(0.34,randf_range(0.7,1.0),0.3)
-	await change_to_env(0.0,randf_range(0.05,0.2),0.1)
+	## buildup
+	var subtle_light_min_factor := 0.025
+	var subtle_light_max_factor := 0.05
+	var buildup_sky_light_energy_inc := max_sky_light_energy * randf_range(subtle_light_min_factor,subtle_light_max_factor)
+	var buildup_dir_light_energy_inc := max_directional_light_energy * randf_range(subtle_light_min_factor,subtle_light_max_factor)
+	var sky_light_energy := 0.025
+	var dir_light_energy := 0.025
+	for i in randi_range(1, 4):
+		await change_to_env(sky_light_energy, 0.05, dir_light_energy)
+		await get_tree().create_timer(randf_range(0.05, 0.1)).timeout
+		await change_to_env(sky_light_energy - 0.1, randf_range(0.05, 0.1), dir_light_energy - 0.1)
+		sky_light_energy += buildup_sky_light_energy_inc
+		dir_light_energy += buildup_dir_light_energy_inc
 	
-	for i in randi_range(0,3):
-		await change_to_env(0.34,subtle_flash_timing,0.03)
-		await change_to_env(0.0,0.2,0.01)
-		
-	await change_to_env(0.34,randf_range(0.7,1.0),0.05)
-	await change_to_env(0.0,randf_range(0.05,0.2),0.0)
+	# suspense
+	await change_to_env(0.0,randf_range(0.8, 1.3),0.0)
+	
+	# big bang
+	await change_to_env(max_sky_light_energy, 0.05, max_directional_light_energy)
+	await get_tree().create_timer(randf_range(0.1, 0.3)).timeout
+	await change_to_env(0.0,randf_range(0.8, 1.3),0.0)
+	
 	play_thunder_audio(false)
-	await get_tree().create_timer(randf_range(2.5,5.0)).timeout
-	lightning_pattern_two()
-	
-func lightning_pattern_two():
-	directional_light.rotation = Vector3(250,randf_range(-360, 360),0)
-	var subtle_flash_timing = randf_range(0.01,0.1)
-	
-	for i in randi_range(0,3):
-		await change_to_env(0.34,subtle_flash_timing,0.02)
-		await change_to_env(0.0,0.2,0.01)
-		
-	await change_to_env(1.93,subtle_flash_timing,0.05)
-	for i in randi_range(0,1):
-		await change_to_env(1.93,subtle_flash_timing,0.9)
-	play_thunder_audio(true)
-	await get_tree().create_timer(randf_range(0.5,2.0)).timeout
-	start_sequence_lightning()
 	
 func play_thunder_audio(force_play_close_audio : bool):
 	var sound_lag = randf_range(0.2,1.5)
@@ -89,7 +78,7 @@ func change_to_env(env_light_intensity: float, duration: float, dir_light_intens
 		tween = null
 	
 	tween = create_tween().bind_node(self)
-	tween.tween_property(directional_light, 'light_energy', dir_light_intensity, duration)
+	tween.parallel().tween_property(directional_light, 'light_energy', dir_light_intensity, duration)
 	tween.parallel().tween_property(world_environment.environment, 'background_energy_multiplier', env_light_intensity, duration)
 	
 	await tween.finished

@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://wylhqij4p4jo"
 path.s3tc="res://.godot/imported/flashlight_1.png-cfbc1ad76611119fdd97c8327cbd026d.s3tc.ctex"
+path.etc2="res://.godot/imported/flashlight_1.png-cfbc1ad76611119fdd97c8327cbd026d.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/models/flashlight_1.png"
-dest_files=["res://.godot/imported/flashlight_1.png-cfbc1ad76611119fdd97c8327cbd026d.s3tc.ctex"]
+dest_files=["res://.godot/imported/flashlight_1.png-cfbc1ad76611119fdd97c8327cbd026d.s3tc.ctex", "res://.godot/imported/flashlight_1.png-cfbc1ad76611119fdd97c8327cbd026d.etc2.ctex"]
 
 [params]
 
