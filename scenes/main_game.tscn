@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bwa6y7wtxewj2"]
+[gd_scene load_steps=13 format=3 uid="uid://bwa6y7wtxewj2"]
 
 [ext_resource type="Script" uid="uid://bombasrnoko1y" path="res://scripts/main_game.gd" id="1_72e8q"]
 [ext_resource type="PackedScene" uid="uid://bj2rtxodhdnh0" path="res://scenes/mountain_test_3.tscn" id="2_70vka"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://dn7gkaax7onba" path="res://scripts/setting_menu_canva.gd" id="5_ygxny"]
 [ext_resource type="PackedScene" uid="uid://ve80b6j2o8vl" path="res://scenes/end_game_screen.tscn" id="7_wi4c7"]
 [ext_resource type="PackedScene" uid="uid://b13cuye6q4cjr" path="res://scenes/battery_pack.tscn" id="8_70vka"]
+[ext_resource type="AudioStream" uid="uid://dednst4bexc6y" path="res://assets/sfx/Thunder_Sounds/Loop/mixkit-heavy-rain-drops-2399.wav" id="10_nqdth"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ygxny"]
 size = Vector3(12.2329, 3.1134, 22.6741)
@@ -82,6 +83,11 @@ transform = Transform3D(0.928635, 0.370995, 0, -0.370995, 0.928635, 0, 0, 0, 1, 
 
 [node name="BatteryPack2" parent="." instance=ExtResource("8_70vka")]
 transform = Transform3D(0.243409, -0.234163, -0.941233, -0.297129, 0.905761, -0.302178, 0.923291, 0.35322, 0.150894, 313.098, 1513.11, -2145.02)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_nqdth")
+volume_db = -16.14
+autoplay = true
 
 [connection signal="back_button_pressed" from="MenuCanvas/SettingMenu" to="MenuCanvas" method="_on_setting_menu_back_button_pressed"]
 [connection signal="body_entered" from="FinishLineArea" to="." method="_on_finish_line_area_body_entered"]
