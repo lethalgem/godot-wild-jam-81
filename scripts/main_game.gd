@@ -10,6 +10,7 @@ class_name MainGame extends Node3D
 
 func _on_finish_line_area_body_entered(body):
 	end_game_screen.show_end_game_screen()
+	
 
 func _on_death_area_body_entered(body):
 	player.global_position = player_start_location
@@ -20,3 +21,8 @@ func _on_battery_2_battery_replenish():
 	
 func _on_battery_battery_replenish():
 	player.player_cam.battery_life.value += 200
+
+
+func _on_end_game_screen_restart_pressed():
+	player.global_position = player_start_location
+	player.player_cam.battery_life.value = 1000
