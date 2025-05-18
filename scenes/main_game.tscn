@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cu70k1i838jgq" path="res://scenes/battery.tscn" id="8_70vka"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ygxny"]
-size = Vector3(4.37939, 0.103516, 6.97842)
+size = Vector3(12.2329, 3.1134, 22.6741)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wi4c7"]
 size = Vector3(3714.17, 15.3416, 4761.74)
@@ -53,11 +53,11 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="FinishLineArea" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.4939, 0.5, -14.4944)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.4041, 1622.35, -1684.72)
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FinishLineArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6897, -0.448242, 2.98921)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.72682, -0.593018, 12.2441)
 shape = SubResource("BoxShape3D_ygxny")
 
 [node name="DeathArea" type="Area3D" parent="."]
@@ -72,12 +72,13 @@ shape = SubResource("BoxShape3D_wi4c7")
 visible = false
 
 [node name="Battery2" parent="." instance=ExtResource("8_70vka")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.42195, 0.0999999, -8.99561)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 162.162, 1545.13, -1841.24)
 
 [node name="Battery" parent="." instance=ExtResource("8_70vka")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 313.922, 1512.95, -2144.41)
 
 [connection signal="body_entered" from="FinishLineArea" to="." method="_on_finish_line_area_body_entered"]
 [connection signal="body_entered" from="DeathArea" to="." method="_on_death_area_body_entered"]
+[connection signal="restart_pressed" from="EndGameScreen" to="." method="_on_end_game_screen_restart_pressed"]
 [connection signal="battery_replenish" from="Battery2" to="." method="_on_battery_2_battery_replenish"]
 [connection signal="battery_replenish" from="Battery" to="." method="_on_battery_battery_replenish"]
