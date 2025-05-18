@@ -82,6 +82,7 @@ func play_thunder_audio(force_play_close_audio : bool):
 	
 	thunder_audio_player.volume_db = volume
 	thunder_audio_player.stream = sound
+	thunder_audio_player.bus = 'sfx'
 	await get_tree().create_timer(sound_lag).timeout
 	thunder_audio_player.play()
 	
