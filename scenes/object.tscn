@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://cxlvx7iiolkh6"]
+
+[ext_resource type="PackedScene" uid="uid://c2wlgy8ew1ikt" path="res://assets/models/object.glb" id="1_pkda2"]
+[ext_resource type="Texture2D" uid="uid://c4o561imgi2og" path="res://assets/glow/GlowSprite.png" id="2_cbfvs"]
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_a0y2b"]
+emission_enabled = true
+emission = Color(0, 0.921569, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6qvdj"]
+
+[node name="object" instance=ExtResource("1_pkda2")]
+
+[node name="Battery A" parent="." index="0"]
+material_override = SubResource("ORMMaterial3D_a0y2b")
+surface_material_override/0 = SubResource("StandardMaterial3D_6qvdj")
+
+[node name="Jacks A" parent="Battery A" index="0"]
+visible = false
+
+[node name="Cable" parent="." index="2"]
+visible = false
+
+[node name="Battery B" parent="." index="3"]
+visible = false
+
+[node name="Jacks B" parent="Battery B" index="0"]
+visible = false
+
+[node name="*Sun" parent="." index="4"]
+visible = false
+
+[node name="Deck" parent="." index="5"]
+visible = false
+
+[node name="Sprite3D" type="Sprite3D" parent="." index="6"]
+modulate = Color(0.171574, 0.732128, 0.842408, 1)
+pixel_size = 0.3
+billboard = 1
+texture = ExtResource("2_cbfvs")
