@@ -1,11 +1,7 @@
-class_name RainParticles extends Node3D
+class_name RainParticles extends GPUParticles3D
 
 @export var player: Player3D
 @export var rotation_offset := 90.0
-@export var distance_offset := 3.0
-
-func _ready() -> void:
-	$RainParticles.position.x = -distance_offset
 
 func _physics_process(_delta: float) -> void:
 	if player != null:

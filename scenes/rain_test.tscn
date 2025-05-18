@@ -31,6 +31,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1031.98, 0)
 [node name="RainParticles" parent="Player3D" node_paths=PackedStringArray("player") instance=ExtResource("1_5i34o")]
 transform = Transform3D(-0.0354751, 0, -0.999371, 0, 1, 0, 0.999371, 0, -0.0354751, 0.00332272, 6.69006, -0.00147247)
 player = NodePath("..")
+rotation_offset = -90.0
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1031.33, 0)
