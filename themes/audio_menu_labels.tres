@@ -1,4 +1,7 @@
-[gd_resource type="LabelSettings" format=3 uid="uid://7ud8i355i72s"]
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://7ud8i355i72s"]
+
+[ext_resource type="FontFile" uid="uid://cl2rdgm2mxuat" path="res://assets/fonts/Juvanze-ovw9A.otf" id="1_rprms"]
 
 [resource]
+font = ExtResource("1_rprms")
 font_size = 25
