@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://brf05vc778n02" path="res://scenes/lightning_manager.tscn" id="5_wi4c7"]
 [ext_resource type="Script" uid="uid://dn7gkaax7onba" path="res://scripts/setting_menu_canva.gd" id="5_ygxny"]
 [ext_resource type="PackedScene" uid="uid://ve80b6j2o8vl" path="res://scenes/end_game_screen.tscn" id="7_wi4c7"]
-[ext_resource type="PackedScene" uid="uid://cu70k1i838jgq" path="res://scenes/battery.tscn" id="8_70vka"]
+[ext_resource type="PackedScene" uid="uid://b13cuye6q4cjr" path="res://scenes/battery_pack.tscn" id="8_70vka"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ygxny"]
 size = Vector3(12.2329, 3.1134, 22.6741)
@@ -29,11 +29,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.7489, 9.53674e-07, 6.74067
 [node name="Player3D" parent="." instance=ExtResource("4_ygxny")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 301.555, 1497.71, -2339.86)
 
-[node name="MenuCanva" type="CanvasLayer" parent="." node_paths=PackedStringArray("setting_menu")]
+[node name="MenuCanvas" type="CanvasLayer" parent="." node_paths=PackedStringArray("setting_menu")]
 script = ExtResource("5_ygxny")
 setting_menu = NodePath("SettingMenu")
 
-[node name="PanelContainer" type="PanelContainer" parent="MenuCanva"]
+[node name="PanelContainer" type="PanelContainer" parent="MenuCanvas"]
 visible = false
 anchors_preset = 15
 anchor_right = 1.0
@@ -42,7 +42,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
 
-[node name="SettingMenu" parent="MenuCanva" instance=ExtResource("2_d2op2")]
+[node name="SettingMenu" parent="MenuCanvas" instance=ExtResource("2_d2op2")]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -53,7 +53,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="FinishLineArea" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.4041, 1622.35, -1684.72)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -131.361, 1622.35, -1752.33)
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FinishLineArea"]
@@ -61,7 +61,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.72682, -0.593018, 12.2441)
 shape = SubResource("BoxShape3D_ygxny")
 
 [node name="DeathArea" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 229.8, 1423.34, -2273.01)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 229.8, 1437.97, -2273.01)
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DeathArea"]
@@ -71,14 +71,15 @@ shape = SubResource("BoxShape3D_wi4c7")
 [node name="EndGameScreen" parent="." instance=ExtResource("7_wi4c7")]
 visible = false
 
-[node name="Battery2" parent="." instance=ExtResource("8_70vka")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 162.162, 1545.13, -1841.24)
+[node name="BatteryPack" parent="." instance=ExtResource("8_70vka")]
+transform = Transform3D(0.928635, 0.370995, 0, -0.370995, 0.928635, 0, 0, 0, 1, 165.671, 1544.33, -1841.27)
 
-[node name="Battery" parent="." instance=ExtResource("8_70vka")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 313.922, 1512.95, -2144.41)
+[node name="BatteryPack2" parent="." instance=ExtResource("8_70vka")]
+transform = Transform3D(0.243409, -0.234163, -0.941233, -0.297129, 0.905761, -0.302178, 0.923291, 0.35322, 0.150894, 313.098, 1513.11, -2145.02)
 
+[connection signal="back_button_pressed" from="MenuCanvas/SettingMenu" to="MenuCanvas" method="_on_setting_menu_back_button_pressed"]
 [connection signal="body_entered" from="FinishLineArea" to="." method="_on_finish_line_area_body_entered"]
 [connection signal="body_entered" from="DeathArea" to="." method="_on_death_area_body_entered"]
 [connection signal="restart_pressed" from="EndGameScreen" to="." method="_on_end_game_screen_restart_pressed"]
-[connection signal="battery_replenish" from="Battery2" to="." method="_on_battery_2_battery_replenish"]
-[connection signal="battery_replenish" from="Battery" to="." method="_on_battery_battery_replenish"]
+[connection signal="battery_replenish" from="BatteryPack" to="." method="_on_battery_pack_battery_replenish"]
+[connection signal="battery_replenish" from="BatteryPack2" to="." method="_on_battery_pack_2_battery_replenish"]

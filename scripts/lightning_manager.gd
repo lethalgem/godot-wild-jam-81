@@ -42,7 +42,7 @@ func start_sequence_lightning():
 		
 	await change_to_env(0.34,randf_range(0.7,1.0),0.05)
 	await change_to_env(0.0,randf_range(0.05,0.2),0.0)
-	#play_thunder_audio(false)
+	play_thunder_audio(false)
 	await get_tree().create_timer(randf_range(2.5,5.0)).timeout
 	lightning_pattern_two()
 	
@@ -65,7 +65,7 @@ func lightning_pattern_two():
 func play_thunder_audio(force_play_close_audio : bool):
 	var sound_lag = randf_range(0.2,1.5)
 	var sound : AudioStream
-	var volume : float = -sound_lag * 3.0
+	var volume : float = -sound_lag * 3.0 - 15.0
 	
 	if force_play_close_audio:
 		sound = close_thunder_audio_pool.pick_random()

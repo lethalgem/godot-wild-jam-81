@@ -8,6 +8,7 @@ class_name Player3D extends CharacterBody3D
 @export var steering_factor := 20
 @export var stride_distance := 3.0
 
+var jump_count = 0
 var target_velocity := Vector3.ZERO
 
 @onready var last_stepped_position := global_position
@@ -58,6 +59,13 @@ func _physics_process(delta):
 
 	velocity += gravity_strength * delta * Vector3.DOWN
 	move_and_slide()
+	
+	if Input.is_action_pressed("jump") and jump_count <=1:
+		velocity.y = 15.0
+		jump_count += 1
+	
+	if velocity.y == 0:
+		jump_count = 0
 	
 	if velocity != last_velocity and last_velocity.length() == 0.0 and is_on_floor(): # just starting motion
 		take_step()
